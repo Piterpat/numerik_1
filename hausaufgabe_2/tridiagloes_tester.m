@@ -14,6 +14,5 @@ for i=1:n-1
     A(i,i+1)=b(i);
 end
 
-
 u1= tridiagloes(a,b,f)
 u2= A\f

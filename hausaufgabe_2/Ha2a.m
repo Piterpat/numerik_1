@@ -6,7 +6,7 @@ for i=2:n+1
 %     erster Eintrag
     T(i-1,1) = i;
 %     zweiter Eintrag
-    T(i-1,2) = (cond(hilb(i),inf) .* 10e-16);
+    T(i-1,2) = (cond(hilb(i),inf) .* 10e-18);
 %     dritter Eintrag
     A = hilb(i);
     b = A(:,1) + A(:,i);
@@ -20,7 +20,7 @@ for i=2:n+1
     y_lr = L\(P*b);
     x_lr = R\y_lr;
     T(i-1,4) = (norm(x-x_lr,inf))./ norm(x,inf);
-%     fünfter Eintrag
+%     fï¿½nfter Eintrag
     R = chol(A);
     y_ch = R.'\b;
     x_ch = R\y_ch;
