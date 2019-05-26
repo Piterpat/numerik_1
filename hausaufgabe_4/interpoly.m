@@ -7,11 +7,12 @@ function [c]=interpoly(x,f)
 A=zeros(n);
 
 for i=1:n
-    for ii=1:n
-        A(i,ii)=x(i,1).^(n+1-ii);
+    A(i,1)=1;
+    for ii=2:n
+        A(i,ii)=A(i,ii-1).*x(i,1);
     end
 end
 
 %cond(A)
 
-c=A\f;
+c=flipud(A\f);
