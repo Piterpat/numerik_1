@@ -1,5 +1,5 @@
 f = @(x)  1 + cos(x).*cosh(x);
-x=regulafalsi(f,7,9,0.01);
+x=regulafalsi(f,1,2,0.01);
 
 disp(x)
 
