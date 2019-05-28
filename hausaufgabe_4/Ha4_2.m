@@ -1,3 +1,3 @@
-a = [-1 0 5];
+a = [1 4 5];
 z = polyzeros(a)'
 b = roots(a)
