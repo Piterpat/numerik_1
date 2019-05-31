@@ -3,9 +3,9 @@ clear
 
 a=-6;
 b=6;
-n=5;
-d=@(x) cos(x);
-%d=@(x) 1./(1+(x.^2));
+n=17;
+%d=@(x) cos(x);
+d=@(x) 1./(1+(x.^2));
 
 %Stuetzstellen aequidistant
 x_1=linspace(a,b,n)';
@@ -38,6 +38,7 @@ plot(x_1,f_1,'.','color','r')
 hold off
 axis([-6 6 -0.5 1.5])
 title('Interpolation mit aequidistanten Stuetzstellen')
+axis square
 
 subplot(2,1,2)
 plot(x_3,y_3,'b')
@@ -47,4 +48,4 @@ plot(x_2,f_2,'.','color','r')
 hold off
 axis([-6 6 -0.5 1.5])
 title('Interpolation mit Stuetzstellen nach Tschebyscheff')
-
+axis square
