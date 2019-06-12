@@ -1,5 +1,5 @@
 %Hausaufgabe 1.2 implemtieren des Upwind-Verfahrens
-%Lösen der linearen Transportgleichung auf gegebenen Gebiet
+%LÃ¶sen der linearen Transportgleichung auf gegebenen Gebiet
 clear
 
 a=1;
@@ -59,6 +59,7 @@ end
 
 
 %plotting
+Frames=struct('cdata', cell(1, M), 'colormap', cell(1, M));
 fig=figure(1);
 for i=1:M
     if ~ishandle(fig)
@@ -72,5 +73,21 @@ for i=1:M
     hold off
     legend('analyitsche','Upwind','Lax-Friedrich','Lax-Wendroff')
     axis([l,r,min(U(:,1)),max(U(:,1))])
+    Frames(i) = getframe(gcf);
     drawnow
 end
+
+% create the video writer with 1 fps
+  writerObj = VideoWriter('ha_1_2_projekt.avi');
+  writerObj.FrameRate = 10;
+  % set the seconds per image
+% open the video writer
+open(writerObj);
+% write the frames to the video
+for i=1:length(Frames)
+    % convert the image to a frame
+    frame = Frames(i) ;    
+    writeVideo(writerObj, frame);
+end
+% close the writer object
+close(writerObj);
