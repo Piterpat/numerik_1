@@ -1,3 +1,5 @@
+%noch nicht getestet
+
 function [B,Ind1,Ind2,Ind3,Ind4,Ind5,Ind6,Ind7,Ind8] = karte(K)
     [x,y] = size(K);
     B = zeros([x,y]);
