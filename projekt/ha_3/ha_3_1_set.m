@@ -60,5 +60,5 @@ t=s;
 fig=figure(1);
 axis_set=[min(x) max(x)...
         min(y) max(x)...
-        min(min(H)) max(max(H))];
+        min(min(H)) max(max(H))+0.5];
 caxis_set=[min(min(H)) max(max(H))];
