@@ -10,6 +10,8 @@ while t<e
     axis([l,r,low,up])
     drawnow
     
+    %!! +((HU./H).^2)
+    
     %1) CFL Bedingung
     a=max(abs(HU./H)+abs(sqrt(g.*H)));
     dt=CFL.*(dx./a);
