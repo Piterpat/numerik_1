@@ -20,7 +20,7 @@ dy=(o-u)./M;
 
 %Start und Ende (Zeit)
 s=0;
-e=1;
+e=0.5;
 
 x=linspace(l,r,N)';
 y=linspace(u,o,M)';
@@ -55,10 +55,23 @@ n=1;
 %Endbedingung der while schleife
 t=s;
 
-% plotten
+%bodenterm
+B=zeros(N,M);
+for i=1:M
+    for ii=1:N
+%         B(i,ii)=sin(x(i).*pi);
+%         B(i,ii)=(i+ii)/N;
+        if x(i)<0
+            B(i,ii)=0.5;
+        else
+            B(i,ii)=1;
+        end
+    end
+end
 
+% plotten
 fig=figure(1);
 axis_set=[min(x) max(x)...
         min(y) max(x)...
-        min(min(H))-1 max(max(H))+1];
+        min(min(B)) max(max(H))+1];
 caxis_set=[min(min(H)) max(max(H))];

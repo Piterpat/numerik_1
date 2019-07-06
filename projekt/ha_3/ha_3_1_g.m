@@ -12,11 +12,11 @@ function [z]=ha_3_1_g(x,y)
              end
 %             
 %            if sqrt(x(i).*y(ii)) <= 0.5
-%                z(i,ii)=1;
+%                z(i,ii)=6;
 %            else
-%                z(i,ii)=sqrt(x(i).*y(ii));
+%                z(i,ii)=3+sqrt(x(i).*y(ii)).*3;
 %            end
-%            
+           
 %            if sqrt(x(i).*y(ii)) <= 0.5
 %                z(i,ii)=1;
 %            else
