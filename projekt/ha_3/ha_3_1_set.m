@@ -7,9 +7,9 @@ CFL=(1./sqrt(2))-0.05;
 dB=0;
 
 %linker und rechter Rand (Ort) fuer x oberer und unterer fuer y
-l=0;
+l=-1;
 r=1;
-u=0;
+u=-1;
 o=1;
 
 %Anzahl der Schritte N fuer x M fuer y
@@ -60,5 +60,5 @@ t=s;
 fig=figure(1);
 axis_set=[min(x) max(x)...
         min(y) max(x)...
-        min(min(H)) max(max(H))+0.5];
+        min(min(H))-1 max(max(H))+1];
 caxis_set=[min(min(H)) max(max(H))];
