@@ -69,17 +69,17 @@ while t<e
     %5) Randbedingungen
     H(1,:)=H(2,:);
     H(end,:)=H(end-1,:);
-    HU(1,:)=HU(2,:);
-    HU(end,:)=HU(end-1,:);
-    HV(1,:)=HV(2,:);
-    HV(end,:)=HV(end-1,:);
+    HU(1,:)=-HU(2,:);
+    HU(end,:)=-HU(end-1,:);
+    HV(1,:)=-HV(2,:);
+    HV(end,:)=-HV(end-1,:);
     
     H(:,1)=H(:,2);
     H(:,end)=H(:,end-1);
-    HU(:,1)=HU(:,2);
-    HU(:,end)=HU(:,end-1);
-    HV(:,1)=HV(:,2);
-    HV(:,end)=HV(:,end-1);
+    HU(:,1)=-HU(:,2);
+    HU(:,end)=-HU(:,end-1);
+    HV(:,1)=-HV(:,2);
+    HV(:,end)=-HV(:,end-1);
     
     t=t+dt;
     n=n+1;
