@@ -66,7 +66,22 @@ while t<e
         -((dt./dy).*(G3h(2:end-1,2:end)-G3h(2:end-1,1:end-1)));
     
     
-    %5) Randbedingungen
+%     %5) Randbedingungen (absobierend)
+%     H(1,:)=H(2,:);
+%     H(end,:)=H(end-1,:);
+%     HU(1,:)=HU(2,:);
+%     HU(end,:)=HU(end-1,:);
+%     HV(1,:)=HV(2,:);
+%     HV(end,:)=HV(end-1,:);
+%     
+%     H(:,1)=H(:,2);
+%     H(:,end)=H(:,end-1);
+%     HU(:,1)=HU(:,2);
+%     HU(:,end)=HU(:,end-1);
+%     HV(:,1)=HV(:,2);
+%     HV(:,end)=HV(:,end-1);
+
+    %5) Randbedingungen (reflektierend)
     H(1,:)=H(2,:);
     H(end,:)=H(end-1,:);
     HU(1,:)=-HU(2,:);
