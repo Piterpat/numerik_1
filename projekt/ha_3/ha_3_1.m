@@ -2,6 +2,8 @@
 %Erhaltungsgleichung mithilfe des
 %Erhaltungsschemas
 ha_3_1_set
+ha_3_1_bodenterm
+
 
 while t<e
 
@@ -10,6 +12,9 @@ while t<e
         break
     end
     surf(x,y,H)
+    hold on
+    surf(x,y,B)
+    hold off
     axis(axis_set)
     view(45,45)
     caxis(caxis_set)
@@ -55,47 +60,49 @@ while t<e
     
     %4) Erhaltungsschema
     %TODO erklären was wir da machen
+
+    HU(2:end-1,2:end-1)=HU(2:end-1,2:end-1)...
+        -((dt./dx).*(F2h(2:end,2:end-1)-F2h(1:end-1,2:end-1)))...
+        -((dt./dy).*(G2h(2:end-1,2:end)-G2h(2:end-1,1:end-1)))...
+        +(dt.*(g.*H(2:end-1,2:end-1).*dBx));...
+    HV(2:end-1,2:end-1)=HV(2:end-1,2:end-1)...
+        -((dt./dx).*(F3h(2:end,2:end-1)-F3h(1:end-1,2:end-1)))...
+        -((dt./dy).*(G3h(2:end-1,2:end)-G3h(2:end-1,1:end-1)))...
+        +(dt.*(g.*H(2:end-1,2:end-1).*dBy));...
     H(2:end-1,2:end-1)=H(2:end-1,2:end-1)...
         -((dt./dx).*(F1h(2:end,2:end-1)-F1h(1:end-1,2:end-1)))...
         -((dt./dy).*(G1h(2:end-1,2:end)-G1h(2:end-1,1:end-1)));
-    HU(2:end-1,2:end-1)=HU(2:end-1,2:end-1)...
-        -((dt./dx).*(F2h(2:end,2:end-1)-F2h(1:end-1,2:end-1)))...
-        -((dt./dy).*(G2h(2:end-1,2:end)-G2h(2:end-1,1:end-1)));
-    HV(2:end-1,2:end-1)=HV(2:end-1,2:end-1)...
-        -((dt./dx).*(F3h(2:end,2:end-1)-F3h(1:end-1,2:end-1)))...
-        -((dt./dy).*(G3h(2:end-1,2:end)-G3h(2:end-1,1:end-1)));
     
-    
-%     %5) Randbedingungen (absobierend)
-%     H(1,:)=H(2,:);
-%     H(end,:)=H(end-1,:);
-%     HU(1,:)=HU(2,:);
-%     HU(end,:)=HU(end-1,:);
-%     HV(1,:)=HV(2,:);
-%     HV(end,:)=HV(end-1,:);
-%     
-%     H(:,1)=H(:,2);
-%     H(:,end)=H(:,end-1);
-%     HU(:,1)=HU(:,2);
-%     HU(:,end)=HU(:,end-1);
-%     HV(:,1)=HV(:,2);
-%     HV(:,end)=HV(:,end-1);
-
-    %5) Randbedingungen (reflektierend)
+    %5) Randbedingungen (absobierend)
     H(1,:)=H(2,:);
     H(end,:)=H(end-1,:);
-    HU(1,:)=-HU(2,:);
-    HU(end,:)=-HU(end-1,:);
-    HV(1,:)=-HV(2,:);
-    HV(end,:)=-HV(end-1,:);
+    HU(1,:)=HU(2,:);
+    HU(end,:)=HU(end-1,:);
+    HV(1,:)=HV(2,:);
+    HV(end,:)=HV(end-1,:);
     
     H(:,1)=H(:,2);
     H(:,end)=H(:,end-1);
-    HU(:,1)=-HU(:,2);
-    HU(:,end)=-HU(:,end-1);
-    HV(:,1)=-HV(:,2);
-    HV(:,end)=-HV(:,end-1);
-    
+    HU(:,1)=HU(:,2);
+    HU(:,end)=HU(:,end-1);
+    HV(:,1)=HV(:,2);
+    HV(:,end)=HV(:,end-1);
+
+%     %5) Randbedingungen (reflektierend)
+%     H(1,:)=H(2,:);
+%     H(end,:)=H(end-1,:);
+%     HU(1,:)=-HU(2,:);
+%     HU(end,:)=-HU(end-1,:);
+%     HV(1,:)=-HV(2,:);
+%     HV(end,:)=-HV(end-1,:);
+%     
+%     H(:,1)=H(:,2);
+%     H(:,end)=H(:,end-1);
+%     HU(:,1)=-HU(:,2);
+%     HU(:,end)=-HU(:,end-1);
+%     HV(:,1)=-HV(:,2);
+%     HV(:,end)=-HV(:,end-1);
+%     
     t=t+dt;
     n=n+1;
 end
