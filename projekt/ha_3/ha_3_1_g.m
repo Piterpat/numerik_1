@@ -5,18 +5,24 @@ function [z]=ha_3_1_g(x,y)
     for i=1:n
         for ii=1:m
             
-%             if ((x(i)^2)+(y(ii)^2)) <= 0.1
-%                 z(i,ii)=7;
-%             else
-%                 z(i,ii)=4;
-%             end
+             if ((x(i)^2)+(y(ii)^2)) <= 0.1
+                 z(i,ii)=7;
+             else
+                 z(i,ii)=4;
+             end
 %             
-            if sqrt(x(i).*y(ii)) <= 0.5
-                z(i,ii)=1;
-            else
-                z(i,ii)=sqrt(x(i).*y(ii));
-            end
-            
+%            if sqrt(x(i).*y(ii)) <= 0.5
+%                z(i,ii)=1;
+%            else
+%                z(i,ii)=sqrt(x(i).*y(ii));
+%            end
+%            
+%            if sqrt(x(i).*y(ii)) <= 0.5
+%                z(i,ii)=1;
+%            else
+%                z(i,ii)=0.5;
+%            end
+
 %             z(i,ii)=(sin(5.*x(i)).*sin(5.*y(ii)))+5;
         end
     end
