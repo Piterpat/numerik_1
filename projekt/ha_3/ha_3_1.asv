@@ -85,8 +85,8 @@ while t<e
 %     HV(:,1)=HV(:,2);
 %     HV(:,end)=HV(:,end-1);
 
-%     5) Randbedingung
-%    randbedingung
+    5) Randbedingung
+   randbedingung
     
     %5) Randbedingungen (reflektierend)
     H(1,:)=H(2,:);
