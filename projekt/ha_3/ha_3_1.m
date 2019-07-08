@@ -6,16 +6,19 @@ ha_3_1_bodenterm
 
 while t<e
 
+    
     %0) Plotten
     if ~ishghandle(fig)
         break
     end
-    surf(x,y,H)
+    Hplot(BER)=H(BER);
+    surf(x,y,Hplot)
     hold on
-    surf(x,y,B)
+    %surf(x,y,B)
     hold off
     axis(axis_set)
-    view(45,45)
+    view(0,90)
+%     view(45,45)
     caxis(caxis_set)
     %colorbar
     drawnow
@@ -85,23 +88,23 @@ while t<e
 %     HV(:,1)=HV(:,2);
 %     HV(:,end)=HV(:,end-1);
 
-%     5) Randbedingung
-%    randbedingung
+      %5) Randbedingung
+      randbedingung
     
-    %5) Randbedingungen (reflektierend)
-    H(1,:)=H(2,:);
-    H(end,:)=H(end-1,:);
-    HU(1,:)=-HU(2,:);
-    HU(end,:)=-HU(end-1,:);
-    HV(1,:)=-HV(2,:);
-    HV(end,:)=-HV(end-1,:);
-    
-    H(:,1)=H(:,2);
-    H(:,end)=H(:,end-1);
-    HU(:,1)=-HU(:,2);
-    HU(:,end)=-HU(:,end-1);
-    HV(:,1)=-HV(:,2);
-    HV(:,end)=-HV(:,end-1);
+%     %5) Randbedingungen (reflektierend)
+%     H(1,:)=H(2,:);
+%     H(end,:)=H(end-1,:);
+%     HU(1,:)=-HU(2,:);
+%     HU(end,:)=-HU(end-1,:);
+%     HV(1,:)=-HV(2,:);
+%     HV(end,:)=-HV(end-1,:);
+%     
+%     H(:,1)=H(:,2);
+%     H(:,end)=H(:,end-1);
+%     HU(:,1)=-HU(:,2);
+%     HU(:,end)=-HU(:,end-1);
+%     HV(:,1)=-HV(:,2);
+%     HV(:,end)=-HV(:,end-1);
     
     t=t+dt;
     n=n+1;

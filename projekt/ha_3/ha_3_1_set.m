@@ -15,6 +15,11 @@ for i=1:n
     for ii=1:m
         if i==1 || i==n || ii==1 || ii==m
             randkarte(i,ii)=1;
+        end 
+        if i < 80 && i > 70
+            if ii < 30 || ii > 50
+                randkarte(i,ii)=1;
+            end
         end
     end
 end
@@ -35,9 +40,16 @@ BERu=find(~karteu);
 BERl=find(~kartel);
 BERr=find(~karter);
 
-% [RK,Ind1,Ind2x,Ind2y,Ind3,Ind4x,Ind4y,...
-%     Ind5,Ind6x,Ind6y,Ind7,Ind8x,Ind8y] = karte(randkarte);
-
+[Ind1_r,Ind1,Ind2_r,Ind2x,...
+    Ind2y,Ind3_r,Ind3,Ind4_r,Ind4x,...
+    Ind4y,Ind5_r,Ind5,Ind6_r,Ind6x,...
+    Ind6y,Ind7_r,Ind7,Ind8_r,Ind8x,...
+    Ind8y] = karte(randkarte);
+[r_Ind1_r,r_Ind1,r_Ind2_r,r_Ind2x,...
+    r_Ind2y,r_Ind3_r,r_Ind3,r_Ind4_r,...
+    r_Ind4x,r_Ind4y,r_Ind5_r,r_Ind5,...
+    r_Ind6_r,r_Ind6x,r_Ind6y,r_Ind7_r,...
+    r_Ind7,r_Ind8_r,r_Ind8x,r_Ind8y] = karte_ref(randkarte);
 %linker und rechter Rand (Ort) fuer x oberer und unterer fuer y
 l=-1;
 r=1;
@@ -51,7 +63,7 @@ dy=(o-u)./M;
 
 %Start und Ende (Zeit)
 s=0;
-e=0.5;
+e=2;
 
 x=linspace(l,r,N)';
 y=linspace(u,o,M)';
@@ -101,8 +113,12 @@ for i=1:M
 end
 
 % plotten
+Hplot=zeros(N,M);
 fig=figure(1);
 axis_set=[min(x) max(x)...
         min(y) max(x)...
-        min(min(B)) max(max(H))+1];
+        min(min(H))-2 max(max(H))+2];
+% axis_set=[min(x) max(x)...
+%         min(y) max(x)...
+%         2 8];
 caxis_set=[min(min(H)) max(max(H))];

@@ -1,5 +1,5 @@
 % Erstellt Indexmatrizen für reflektierende Wände
-function [RK,r_Ind1_r,r_Ind1,r_Ind2_r,r_Ind2x,r_Ind2y,r_Ind3_r,r_Ind3,r_Ind4_r,r_Ind4x,r_Ind4y,r_Ind5_r,r_Ind5,r_Ind6_r,r_Ind6x,r_Ind6y,r_Ind7_r,r_Ind7,r_Ind8_r,r_Ind8x,r_Ind8y] = karte_ref(BK)
+function [r_Ind1_r,r_Ind1,r_Ind2_r,r_Ind2x,r_Ind2y,r_Ind3_r,r_Ind3,r_Ind4_r,r_Ind4x,r_Ind4y,r_Ind5_r,r_Ind5,r_Ind6_r,r_Ind6x,r_Ind6y,r_Ind7_r,r_Ind7,r_Ind8_r,r_Ind8x,r_Ind8y] = karte_ref(BK)
 % erkennt wie groß BK ist
     [x,y] = size(BK);
 %     Erstellt alle Indexmatrizen
