@@ -1,6 +1,6 @@
 %Erstellt Indexmatrizen für absorbierende Wände
 
-function [RK,Ind1_r,Ind1,Ind2_r,Ind2x,Ind2y,Ind3_r,Ind3,Ind4_r,Ind4x,Ind4y,Ind5_r,Ind5,Ind6_r,Ind6x,Ind6y,Ind7_r,Ind7,Ind8_r,Ind8x,Ind8y] = karte(BK)
+function [Ind1_r,Ind1,Ind2_r,Ind2x,Ind2y,Ind3_r,Ind3,Ind4_r,Ind4x,Ind4y,Ind5_r,Ind5,Ind6_r,Ind6x,Ind6y,Ind7_r,Ind7,Ind8_r,Ind8x,Ind8y] = karte(BK)
 % erkennt wie groß BK ist
     [x,y] = size(BK);
 %     Erstellt alle Indexmatrizen
