@@ -8,12 +8,23 @@ ha_3_1_plotset
 
 while t<e
 
+    
     %0) Plotten
     if ~ishghandle(fig)
         break
     end
-    ha_3_1_plot
-    
+    Hplot(BER)=H(BER);
+    surf(x,y,Hplot)
+    hold on
+    surf(x,y,B)
+    hold off
+    axis(axis_set)
+%     view(0,90)
+    view(45,45)
+    caxis(caxis_set)
+    %colorbar
+    drawnow
+
     %1) CFL Bedingung
     a=max([max(abs(HU./H)+abs(sqrt(g.*H+(HU./H).^2))),...
         max(abs(HV./H)+abs(sqrt(g.*H+(HV./H).^2)))]);
