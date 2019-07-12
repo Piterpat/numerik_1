@@ -3,14 +3,19 @@ n=100;
 m=100;
 randkarte = zeros(n,m);
 
-% 0 - Dammbruch Spalt
+% 0 - kein rand
+% 1 - Dammbruch Spalt
 
-if kartenart == 0
-    for i=1:n
-        for ii=1:m
+
+for i=1:n
+    for ii=1:m
+        if kartenart == 0
             if i==1 || i==n || ii==1 || ii==m
-                randkarte(i,ii)=1;
+                randkarte(i,ii)=2;
             end 
+        end
+        
+        if kartenart == 1
             if i < 80 && i > 70
                 if ii < 30 || ii > 50
                     randkarte(i,ii)=1;
@@ -19,6 +24,7 @@ if kartenart == 0
         end
     end
 end
+
 
 karteu=ones(n,m);
 karteu(:,1:end-1)=randkarte(:,2:end);
@@ -52,7 +58,7 @@ x=linspace(l,r,N)';
 y=linspace(u,o,M)';
 
 %U fuer 3D (mit gegebenen Anfangsvektor fuer H)
-H=ha_3_1_g(x,y);
+H=ha_3_1_g(x,y,anfangsbedingung);
 HU=zeros(N,M);
 HV=zeros(N,M);
 

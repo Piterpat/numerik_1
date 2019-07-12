@@ -2,7 +2,7 @@
 %     [x,~] = size(H);
 %     %     1 ist eine absorbierende,2 eine reflektierende und 3 eine Vorgegebene
 % %     Wand
-% %     Randbedingungen werden für die Kanten vorgegeben(Zelltyp 1,3,5,7)
+% %     Randbedingungen werden fï¿½r die Kanten vorgegeben(Zelltyp 1,3,5,7)
 %     i1 = find (Ind1);
 %     k = size(i1);
 %     for i=1:k
@@ -67,7 +67,7 @@
 % %        Hier muss noch die dritte Randbedingung vorgegeben werden
 %     end
 %     
-% %     Das gleiche nur für Ecken(Zellen 2,4,6,8)
+% %     Das gleiche nur fï¿½r Ecken(Zellen 2,4,6,8)
 %     i2x = find(Ind2x);
 %     i2y = find(Ind2y);
 %     
@@ -113,7 +113,7 @@ HV(logical(Ind4_r)) = (dy .* HV(logical(Ind4x)) + dx .* HV(logical(Ind4y)))./(dx
 HV(logical(Ind6_r)) = (dy .* HV(logical(Ind6x)) + dx .* HV(logical(Ind6y)))./(dx + dy);
 HV(logical(Ind8_r)) = (dy .* HV(logical(Ind8x)) + dx .* HV(logical(Ind8y)))./(dx + dy);
 
-% reflektlogical(Ierende Wände werden berechnet
+% reflektlogical(Ierende Wï¿½nde werden berechnet
 
 H(logical(r_Ind1_r)) = H(logical(r_Ind1));
 H(logical(r_Ind3_r)) = H(logical(r_Ind3));
@@ -126,17 +126,17 @@ H(logical(r_Ind8_r)) = (dy .* H(logical(r_Ind8x)) + dx .* H(logical(r_Ind8y)))./
 
 HU(logical(r_Ind1_r)) = - HU(logical(r_Ind1));
 HU(logical(r_Ind3_r)) = - HU(logical(r_Ind3));
-HU(logical(r_Ind5_r)) = -HU(logical(r_Ind5));
-HU(logical(r_Ind7_r)) = -HU(logical(r_Ind7));
+HU(logical(r_Ind5_r)) =  HU(logical(r_Ind5));
+HU(logical(r_Ind7_r)) =  HU(logical(r_Ind7));
 HU(logical(r_Ind2_r)) = -(dy .* HU(logical(r_Ind2x)) + dx .* HU(logical(r_Ind2y)))./(dx + dy);
 HU(logical(r_Ind4_r)) = -(dy .* HU(logical(r_Ind4x)) + dx .* HU(logical(r_Ind4y)))./(dx + dy);
 HU(logical(r_Ind6_r)) = -(dy .* HU(logical(r_Ind6x)) + dx .* HU(logical(r_Ind6y)))./(dx + dy);
 HU(logical(r_Ind8_r)) = -(dy .* HU(logical(r_Ind8x)) + dx .* HU(logical(r_Ind8y)))./(dx + dy);
 
-HV(logical(r_Ind1_r)) = -HV(logical(r_Ind1));
-HV(logical(r_Ind3_r)) = -HV(logical(r_Ind3));
-HV(logical(r_Ind5_r)) = -HV(logical(r_Ind5));
-HV(logical(r_Ind7_r)) = -HV(logical(r_Ind7));
+HV(logical(r_Ind1_r)) =  HV(logical(r_Ind1));
+HV(logical(r_Ind3_r)) =  HV(logical(r_Ind3));
+HV(logical(r_Ind5_r)) = - HV(logical(r_Ind5));
+HV(logical(r_Ind7_r)) = - HV(logical(r_Ind7));
 HV(logical(r_Ind2_r)) = -(dy .* HV(logical(r_Ind2x)) + dx .* HV(logical(r_Ind2y)))./(dx + dy);
 HV(logical(r_Ind4_r)) = -(dy .* HV(logical(r_Ind4x)) + dx .* HV(logical(r_Ind4y)))./(dx + dy);
 HV(logical(r_Ind6_r)) = -(dy .* HV(logical(r_Ind6x)) + dx .* HV(logical(r_Ind6y)))./(dx + dy);

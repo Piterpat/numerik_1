@@ -1,6 +1,6 @@
 %bodenterm
 % 0 - Wellenboden
-% 1 - Schräge
+% 1 - Schrï¿½ge
 % 2 - Stufe
 B=zeros(N,M);
 
@@ -21,6 +21,10 @@ for i=1:M
             else
                 B(i,ii)=1;
             end
+        end
+        
+        if bodenart == 3
+            B(i,ii)=x(i)^2+y(ii)^2;
         end
         
     end

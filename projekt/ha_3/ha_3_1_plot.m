@@ -6,8 +6,9 @@
 
 Hplot(BER)=H(BER);
 surf(x,y,Hplot)
+% surf(x,y,Hplot+B)
 hold on
-surf(x,y,B)
+% surf(x,y,B)
 hold off
 axis(axis_set)
 
@@ -19,7 +20,7 @@ if viewart == 1
     view(45,45)
 end
 
-caxis(caxis_set)
+% caxis(caxis_set)
 
 % colorbar
 

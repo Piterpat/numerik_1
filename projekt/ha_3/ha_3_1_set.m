@@ -5,18 +5,21 @@ g=9.81;
 CFL=(1./sqrt(2))-0.05;
 
 kartenart = 0;
-% 0 - Dammbruch Spalt
+% 0 - kein rand
+% 1 - Dammbruch Spalt
 
-anfangsbedingung=2;
+anfangsbedingung=3;
 % 0 - Wassertropfen
 % 1 - Welle nach innen
 % 2 - Sinusbecken
 % 3 - Dammbruch
+% 4 - flaches Wasser
 
-bodenart = 0;
+bodenart = 3;
 % 0 - Wellenboden
-% 1 - Schräge
+% 1 - Schrï¿½ge
 % 2 - Stufe
+
 
 viewart = 1;
 % 0 - top-down

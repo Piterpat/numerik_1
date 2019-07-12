@@ -1,10 +1,11 @@
-%numerischer löser einer eindimensionalen 
+%numerischer lï¿½ser einer eindimensionalen 
 %Erhaltungsgleichung mithilfe des
 %Erhaltungsschemas
 ha_3_1_set
 ha_3_1_karte
 ha_3_1_bodenterm
 ha_3_1_plotset
+% H=H-B;
 
 while t<e
 
@@ -49,11 +50,11 @@ while t<e
     HU(BER)=HU(BER)...
         -((dt./dx).*(F2h(BER)-F2h(BERr)))...
         -((dt./dy).*(G2h(BER)-G2h(BERu)))...
-        +(dt.*(g.*H(BER).*dBx(BER)));
+        -(dt.*(g.*H(BER).*dBx(BER)));
     HV(BER)=HV(BER)...
         -((dt./dx).*(F3h(BER)-F3h(BERr)))...
         -((dt./dy).*(G3h(BER)-G3h(BERu)))...
-        +(dt.*(g.*H(BER).*dBy(BER)));
+        -(dt.*(g.*H(BER).*dBy(BER)));
     H(BER)=H(BER)...
         -((dt./dx).*(F1h(BER)-F1h(BERr)))...
         -((dt./dy).*(G1h(BER)-G1h(BERu)));
