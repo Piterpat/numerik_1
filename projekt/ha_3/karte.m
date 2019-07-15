@@ -119,6 +119,29 @@ function [Ind1_r,Ind1,Ind2_r,Ind2x,Ind2y,Ind3_r,Ind3,Ind4_r,Ind4x,Ind4y,Ind5_r,I
         end
     end
     
+%     Erstellen der logikmatrizen
+    Ind1_r = logical(Ind1_r);
+    Ind1 = logical(Ind1);
+    Ind2_r = logical(Ind_r);
+    Ind2x = logical(Ind2x);
+    Ind2y = logical(Ind2y);
+    Ind3_r = logical(Ind_r);
+    Ind3 = logical(Ind3);
+    Ind4_r = logical(Ind4_r);
+    Ind4x = logical(Ind4x);
+    Ind4y = logical(Ind4y);
+    Ind5_r = logical(Ind5_r);
+    Ind5 = logical(Ind5);
+    Ind6_r = logical(Ind_r);
+    Ind6x = logical(Ind6x);
+    Ind6y = logical(Ind6y);
+    Ind7_r = logical(Ind7_r);
+    Ind7 = logical(Ind7);
+    Ind8_r = logical(Ind8_r);
+    Ind8x = logical(Ind8x);
+    Ind8y = logical(Ind8y);
+    
+    
     %Erstellung Indexmatrizen abgeschlossen
     
     %Ueberpruefung, welcher Rand absorbierunt und welcher reflektiert, dazu

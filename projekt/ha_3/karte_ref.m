@@ -119,6 +119,29 @@ function [r_Ind1_r,r_Ind1,r_Ind2_r,r_Ind2x,r_Ind2y,r_Ind3_r,r_Ind3,r_Ind4_r,r_In
         end
     end
     
+    r_Ind1_r = logical(r_Ind1_r);
+    r_Ind1 = logical(r_Ind1);
+    r_Ind2_r = logical(r_Ind_r);
+    r_Ind2x = logical(r_Ind2x);
+    r_Ind2y = logical(r_Ind2y);
+    r_Ind3_r = logical(r_Ind_r);
+    r_Ind3 = logical(r_Ind3);
+    r_Ind4_r = logical(r_Ind4_r);
+    r_Ind4x = logical(r_Ind4x);
+    r_Ind4y = logical(r_Ind4y);
+    r_Ind5_r = logical(r_Ind5_r);
+    r_Ind5 = logical(r_Ind5);
+    r_Ind6_r = logical(r_Ind_r);
+    r_Ind6x = logical(r_Ind6x);
+    r_Ind6y = logical(r_Ind6y);
+    r_Ind7_r = logical(r_Ind7_r);
+    r_Ind7 = logical(r_Ind7);
+    r_Ind8_r = logical(r_Ind8_r);
+    r_Ind8x = logical(r_Ind8x);
+    r_Ind8y = logical(r_Ind8y);
+    
+    
+    
     %Erstellung Indexmatrizen abgeschlossen
     
     %Ueberpruefung, welcher Rand absorbierunt und welcher reflektiert, dazu
