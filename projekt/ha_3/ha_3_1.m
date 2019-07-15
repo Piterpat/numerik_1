@@ -1,28 +1,21 @@
-%numerischer löser einer eindimensionalen 
+%numerischer loeser einer eindimensionalen 
 %Erhaltungsgleichung mithilfe des
 %Erhaltungsschemas
 ha_3_1_set
-ha_3_1_bodenterm
+ha_3_1_karte
+if bodenflag == 1
+    ha_3_1_bodenterm
+end
+ha_3_1_plotset
 
 while t<e
 
-    
     %0) Plotten
     if ~ishghandle(fig)
         break
     end
-    Hplot(BER)=H(BER);
-    surf(x,y,Hplot)
-    hold on
-    %surf(x,y,B)
-    hold off
-    axis(axis_set)
-    view(0,90)
-%     view(45,45)
-    caxis(caxis_set)
-    %colorbar
-    drawnow
-
+    ha_3_1_plot
+    
     %1) CFL Bedingung
     a=max([max(abs(HU./H)+abs(sqrt(g.*H+(HU./H).^2))),...
         max(abs(HV./H)+abs(sqrt(g.*H+(HV./H).^2)))]);
@@ -38,7 +31,6 @@ while t<e
     G3=(((HV).^2)./H)+(0.5.*g.*(H.^2));
     
     %3) Approximation der Flussgroessen
-    %an den Zellwaenden
     vf=dx./(4.*dt);
     F1h(1:end-1,:)=(vf.*(H(1:end-1,:)-H(2:end,:)))...
         +(0.5.*(F1(1:end-1,:)+F1(2:end,:)));
@@ -54,58 +46,34 @@ while t<e
     G3h(:,1:end-1)=(vf.*(HV(:,1:end-1)-HV(:,2:end,:)))...
         +(0.5.*(G3(:,1:end-1)+G3(:,2:end)));
     
-   
-    %!! Bodeterm nachtragen
     
     %4) Erhaltungsschema
-    %TODO erklären was wir da machen
-    HU(BER)=HU(BER)...
-        -((dt./dx).*(F2h(BER)-F2h(BERr)))...
-        -((dt./dy).*(G2h(BER)-G2h(BERu)))...
-        +0;
-       % +(dt.*(g.*H(BER).*dBx(BER)));...
-    HV(BER)=HV(BER)...
-        -((dt./dx).*(F3h(BER)-F3h(BERr)))...
-        -((dt./dy).*(G3h(BER)-G3h(BERu)))...
-        +0;
-      %  +(dt.*(g.*H(BER).*dBy(BER)));...
+    if bodenflag == 1
+        HU(BER)=HU(BER)...
+            -((dt./dx).*(F2h(BER)-F2h(BERr)))...
+            -((dt./dy).*(G2h(BER)-G2h(BERu)))...
+            -(dt.*(g.*H(BER).*dBx(BER)));
+        HV(BER)=HV(BER)...
+            -((dt./dx).*(F3h(BER)-F3h(BERr)))...
+            -((dt./dy).*(G3h(BER)-G3h(BERu)))...
+            -(dt.*(g.*H(BER).*dBy(BER)));
+    else
+        HU(BER)=HU(BER)...
+            -((dt./dx).*(F2h(BER)-F2h(BERr)))...
+            -((dt./dy).*(G2h(BER)-G2h(BERu)));
+        HV(BER)=HV(BER)...
+            -((dt./dx).*(F3h(BER)-F3h(BERr)))...
+            -((dt./dy).*(G3h(BER)-G3h(BERu)));
+    end
+    
     H(BER)=H(BER)...
         -((dt./dx).*(F1h(BER)-F1h(BERr)))...
         -((dt./dy).*(G1h(BER)-G1h(BERu)));
     
-%     %5) Randbedingungen (absobierend)
-%     H(1,:)=H(2,:);
-%     H(end,:)=H(end-1,:);
-%     HU(1,:)=HU(2,:);
-%     HU(end,:)=HU(end-1,:);
-%     HV(1,:)=HV(2,:);
-%     HV(end,:)=HV(end-1,:);
-%     
-%     H(:,1)=H(:,2);
-%     H(:,end)=H(:,end-1);
-%     HU(:,1)=HU(:,2);
-%     HU(:,end)=HU(:,end-1);
-%     HV(:,1)=HV(:,2);
-%     HV(:,end)=HV(:,end-1);
 
       %5) Randbedingung
       randbedingung
-    
-%     %5) Randbedingungen (reflektierend)
-%     H(1,:)=H(2,:);
-%     H(end,:)=H(end-1,:);
-%     HU(1,:)=-HU(2,:);
-%     HU(end,:)=-HU(end-1,:);
-%     HV(1,:)=-HV(2,:);
-%     HV(end,:)=-HV(end-1,:);
-%     
-%     H(:,1)=H(:,2);
-%     H(:,end)=H(:,end-1);
-%     HU(:,1)=-HU(:,2);
-%     HU(:,end)=-HU(:,end-1);
-%     HV(:,1)=-HV(:,2);
-%     HV(:,end)=-HV(:,end-1);
-    
+
     t=t+dt;
     n=n+1;
 end
