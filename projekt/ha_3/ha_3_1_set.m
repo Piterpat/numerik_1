@@ -5,22 +5,33 @@ g=9.81;
 CFL=(1./sqrt(2))-0.05;
 
 kartenart = 0;
-% 0 - Dammbruch Spalt
+% 0 - nur Rand
+% 1 - Dammbruch Spalt
 
-anfangsbedingung=2;
+anfangsbedingung=4;
 % 0 - Wassertropfen
 % 1 - Welle nach innen
 % 2 - Sinusbecken
 % 3 - Dammbruch
+% 4 - Flach
 
-bodenart = 0;
+bodenflag = 1;
+% 0 - Boden aus
+% 1 - Boden an
+
+bodenart = 4;
 % 0 - Wellenboden
-% 1 - Schräge
+% 1 - Schraege
 % 2 - Stufe
+% 3 - Flach
+% 4 - Kuppel
 
-viewart = 1;
+viewart = 4;
 % 0 - top-down
 % 1 - isometrisch
+% 2 - seite x
+% 3 - seite y
+% 4 - seite xy
 
 %linker und rechter Rand (Ort) fuer x oberer und unterer fuer y
 l=-1;

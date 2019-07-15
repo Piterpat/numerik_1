@@ -1,7 +1,9 @@
 %bodenterm
 % 0 - Wellenboden
-% 1 - Schräge
+% 1 - Schraege
 % 2 - Stufe
+% 3 - Flach
+% 4 - Kuppel
 B=zeros(N,M);
 
 for i=1:M
@@ -23,9 +25,18 @@ for i=1:M
             end
         end
         
+        if bodenart == 3
+            B(i,ii)= 1;
+        end
+        
+        if bodenart == 4
+            B(i,ii)= 5.*(-x(i)^2-y(ii)^2);
+        end
+        
     end
 end
 
+H=H-B;
 
 dBy=zeros(N,M);
 dBx=zeros(N,M);

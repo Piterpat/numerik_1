@@ -1,9 +1,10 @@
-function [z]=ha_3_1_g(x,y)
-   anfangsbedingung=2;
+function [z]=ha_3_1_g(x,y,anfangsbedingung)
 %     0 - Wassertropfen
 %     1 - Welle nach innen
 %     2 - Sinusbecken
 %     3 - Dammbruch
+%     4 - Flach
+
     [n,~]=size(x);
     [m,~]=size(y);
     z=zeros(n,m);
@@ -35,6 +36,10 @@ function [z]=ha_3_1_g(x,y)
                 else
                      z(i,ii)=4;
                 end
+            end
+            
+            if anfangsbedingung == 4
+                z(i,ii)=5;
             end
             
         end
