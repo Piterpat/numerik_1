@@ -87,16 +87,17 @@ function [r_Ind1_r,r_Ind1,r_Ind2_r,r_Ind2x,r_Ind2y,r_Ind3_r,r_Ind3,r_Ind4_r,r_In
         end
     end
 %     linker Rand
+    
     for i1=2:x-1
-        if BK(i1,2) == 0
-            RK(i1,1) = 1;
+        if BK(i1,2) == 0 && BK(i1,1) == 2
+            RK(i1,1) = 2;
             r_Ind1(i1,2) = 1;
             r_Ind1_r(i1,1) = 1;
         end
     end        
 %   rechter Rand      
     for i5=2:x-1
-        if BK(i5,y-1) == 0
+        if BK(i5,y-1) == 0 && BK(i5,y) == 2
             RK(i5,y)=5;
             r_Ind5(i5,y-1) = 1;
             r_Ind5_r(i5,y) = 1;
@@ -104,7 +105,7 @@ function [r_Ind1_r,r_Ind1,r_Ind2_r,r_Ind2x,r_Ind2y,r_Ind3_r,r_Ind3,r_Ind4_r,r_In
     end
 %     obere Rand
     for i3=2:y-1
-        if BK(2,i3) == 0
+        if BK(2,i3) == 0 && BK(1,i3) == 2
             RK(1,i3) = 7;
             r_Ind7(2,i3) = 1;
             r_Ind7_r(1,i3) = 1;
@@ -112,7 +113,7 @@ function [r_Ind1_r,r_Ind1,r_Ind2_r,r_Ind2x,r_Ind2y,r_Ind3_r,r_Ind3,r_Ind4_r,r_In
     end
 %     untere Rand
     for i7=2:y-1
-        if BK(x-1,i7) == 0
+        if BK(x-1,i7) == 0 && BK(x,i7) == 2
             RK(x,i7) = 3;
             r_Ind3(x-1,i7) = 1;
             r_Ind3_r(x,i7) = 1;
@@ -121,17 +122,17 @@ function [r_Ind1_r,r_Ind1,r_Ind2_r,r_Ind2x,r_Ind2y,r_Ind3_r,r_Ind3,r_Ind4_r,r_In
     
     r_Ind1_r = logical(r_Ind1_r);
     r_Ind1 = logical(r_Ind1);
-    r_Ind2_r = logical(r_Ind_r);
+    r_Ind2_r = logical(r_Ind2_r);
     r_Ind2x = logical(r_Ind2x);
     r_Ind2y = logical(r_Ind2y);
-    r_Ind3_r = logical(r_Ind_r);
+    r_Ind3_r = logical(r_Ind3_r);
     r_Ind3 = logical(r_Ind3);
     r_Ind4_r = logical(r_Ind4_r);
     r_Ind4x = logical(r_Ind4x);
     r_Ind4y = logical(r_Ind4y);
     r_Ind5_r = logical(r_Ind5_r);
     r_Ind5 = logical(r_Ind5);
-    r_Ind6_r = logical(r_Ind_r);
+    r_Ind6_r = logical(r_Ind6_r);
     r_Ind6x = logical(r_Ind6x);
     r_Ind6y = logical(r_Ind6y);
     r_Ind7_r = logical(r_Ind7_r);
