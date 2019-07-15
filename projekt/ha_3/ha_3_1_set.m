@@ -8,14 +8,14 @@ kartenart = 0;
 % 0 - nur Rand
 % 1 - Dammbruch Spalt
 
-anfangsbedingung=4;
+anfangsbedingung=3;
 % 0 - Wassertropfen
 % 1 - Welle nach innen
 % 2 - Sinusbecken
 % 3 - Dammbruch
 % 4 - Flach
 
-bodenflag = 1;
+bodenflag = 0;
 % 0 - Boden aus
 % 1 - Boden an
 
@@ -26,7 +26,7 @@ bodenart = 4;
 % 3 - Flach
 % 4 - Kuppel
 
-viewart = 4;
+viewart = 1;
 % 0 - top-down
 % 1 - isometrisch
 % 2 - seite x

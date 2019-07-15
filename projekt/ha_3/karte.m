@@ -88,7 +88,7 @@ function [Ind1_r,Ind1,Ind2_r,Ind2x,Ind2y,Ind3_r,Ind3,Ind4_r,Ind4x,Ind4y,Ind5_r,I
     end
 %     linker Rand
     for i1=2:x-1
-        if BK(i1,2) == 0
+        if BK(i1,2) == 0 && BK(i1,1) == 1
             RK(i1,1) = 1;
             Ind1(i1,2) = 1;
             Ind1_r(i1,1) = 1;
@@ -96,7 +96,7 @@ function [Ind1_r,Ind1,Ind2_r,Ind2x,Ind2y,Ind3_r,Ind3,Ind4_r,Ind4x,Ind4y,Ind5_r,I
     end        
 %   rechter Rand      
     for i5=2:x-1
-        if BK(i5,y-1) == 0
+        if BK(i5,y-1) == 0 && BK(i5,y) == 1
             RK(i5,y)=5;
             Ind5(i5,y-1) = 1;
             Ind5_r(i5,y) = 1;
@@ -104,7 +104,7 @@ function [Ind1_r,Ind1,Ind2_r,Ind2x,Ind2y,Ind3_r,Ind3,Ind4_r,Ind4x,Ind4y,Ind5_r,I
     end
 %     obere Rand
     for i3=2:y-1
-        if BK(2,i3) == 0
+        if BK(2,i3) == 0 && BK(1,i3) == 1
             RK(1,i3) = 7;
             Ind7(2,i3) = 1;
             Ind7_r(1,i3) = 1;
@@ -112,7 +112,7 @@ function [Ind1_r,Ind1,Ind2_r,Ind2x,Ind2y,Ind3_r,Ind3,Ind4_r,Ind4x,Ind4y,Ind5_r,I
     end
 %     untere Rand
     for i7=2:y-1
-        if BK(x-1,i7) == 0
+        if BK(x-1,i7) == 0 && BK(x,i7) == 1
             RK(x,i7) = 3;
             Ind3(x-1,i7) = 1;
             Ind3_r(x,i7) = 1;
@@ -122,17 +122,17 @@ function [Ind1_r,Ind1,Ind2_r,Ind2x,Ind2y,Ind3_r,Ind3,Ind4_r,Ind4x,Ind4y,Ind5_r,I
 %     Erstellen der logikmatrizen
     Ind1_r = logical(Ind1_r);
     Ind1 = logical(Ind1);
-    Ind2_r = logical(Ind_r);
+    Ind2_r = logical(Ind2_r);
     Ind2x = logical(Ind2x);
     Ind2y = logical(Ind2y);
-    Ind3_r = logical(Ind_r);
+    Ind3_r = logical(Ind3_r);
     Ind3 = logical(Ind3);
     Ind4_r = logical(Ind4_r);
     Ind4x = logical(Ind4x);
     Ind4y = logical(Ind4y);
     Ind5_r = logical(Ind5_r);
     Ind5 = logical(Ind5);
-    Ind6_r = logical(Ind_r);
+    Ind6_r = logical(Ind6_r);
     Ind6x = logical(Ind6x);
     Ind6y = logical(Ind6y);
     Ind7_r = logical(Ind7_r);
