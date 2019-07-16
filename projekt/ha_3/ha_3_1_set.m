@@ -45,7 +45,7 @@ videoart = 1;
 
 %Start und Ende (Zeit)
 s=0;
-e=1;
+e=0.4;
 
 %linker und rechter Rand (Ort) fuer x oberer und unterer fuer y
 l=0;
