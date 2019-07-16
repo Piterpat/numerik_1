@@ -15,6 +15,7 @@ else
     axis(axis_set)
     xlabel('X')
     ylabel('Y')
+    zlabel('Höhe')
 end
 
 % 0 - top-down
@@ -50,6 +51,8 @@ if viewart == 5
 end
 
 axis square
+
+grid off
 
 caxis(caxis_set)
 
