@@ -3,9 +3,7 @@
 %Erhaltungsschemas
 ha_3_1_set
 ha_3_1_karte
-if bodenflag == 1
-    ha_3_1_bodenterm
-end
+ha_3_1_bodenterm
 ha_3_1_plotset
 
 while t<e
@@ -15,6 +13,7 @@ while t<e
         break
     end
     ha_3_1_plot
+    
     
     %1) CFL Bedingung
     a=max([max(abs(HU./H)+abs(sqrt(g.*H+(HU./H).^2))),...
@@ -48,7 +47,7 @@ while t<e
     
     
     %4) Erhaltungsschema
-    if bodenflag == 1
+    if bodenart ~= 0
         HU(BER)=HU(BER)...
             -((dt./dx).*(F2h(BER)-F2h(BERr)))...
             -((dt./dy).*(G2h(BER)-G2h(BERu)))...
@@ -77,3 +76,5 @@ while t<e
     t=t+dt;
     n=n+1;
 end
+
+ha_3_1_videoout

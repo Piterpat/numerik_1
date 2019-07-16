@@ -8,7 +8,9 @@ while t<e
     %0) Plotten
     plot(x,H,'k')
     axis([l,r,low,up])
+    axis square
     drawnow
+    Frames(n) = getframe(gcf);
     
     %!! +((HU./H).^2)
     
