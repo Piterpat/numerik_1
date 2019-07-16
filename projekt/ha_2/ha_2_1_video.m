@@ -5,7 +5,7 @@
 % open the video writer
 open(writerObj);
 % write the frames to the video
-for i=1:length(Frames)
+for i=1:n-1
     % convert the image to a frame
     frame = Frames(i) ;    
     writeVideo(writerObj, frame);

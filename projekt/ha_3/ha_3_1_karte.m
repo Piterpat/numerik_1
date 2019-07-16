@@ -5,6 +5,8 @@ randkarte = zeros(n,m);
 
 % 0 - nur Rand
 % 1 - Dammbruch Spalt
+% 2 - Pylon
+% 3 - Viertel
 
 for i=1:n
     for ii=1:m
@@ -12,13 +14,35 @@ for i=1:n
         if kartenart == 1
             if i < 80 && i > 70
                 if ii < 30 || ii > 50
-                    randkarte(i,ii)=1;
+                    randkarte(i,ii)=2;
                 end
             end
         end
         
+        if kartenart == 2
+            if i < 60 && i > 40
+                if ii < 60 || ii > 40
+                    randkarte(i,ii)=2;
+                end
+            end
+        end
+        
+        if kartenart == 3
+            if i < 100 && i > 50
+                if ii < 50 || ii > 100
+                    randkarte(i,ii)=2;
+                end
+            end
+        end
+        
+
         if i==1 || i==n || ii==1 || ii==m
-            randkarte(i,ii)=1;
+            if kartenrand == 0
+                randkarte(i,ii)=1;
+            end
+            if kartenrand == 1
+                randkarte(i,ii)=2;
+            end
         end
         
     end
