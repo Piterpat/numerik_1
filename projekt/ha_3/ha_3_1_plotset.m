@@ -8,7 +8,7 @@ if bodenart ~= 0
 else
     axis_set=[min(x) max(x)...
     min(y) max(x)...
-    min(min(H))-2 max(max(H))+2];
+    min(min(H))-0.5 max(max(H))+0.5];
 end
 
 caxis_set=[min(min(H)) max(max(H))+0.05];
