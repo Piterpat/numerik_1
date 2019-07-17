@@ -11,7 +11,7 @@ abs_ref = 2;
 % 1 - Innere Zellen der Karte absorbierend
 % 2 - Innere Zellen der Karte reflektierend
 
-kartenart = !;
+kartenart = 1;
 % 0 - nur Rand
 % 1 - Dammbruch Spalt
 % 2 - Pylon
@@ -20,7 +20,7 @@ kartenart = !;
 % 5 - Wellenbrecher Pfeiler
 % 6 - doppel saeulen 300
 
-anfangsbedingung = §;
+anfangsbedingung = 3;
 % 0 - Wassertropfen
 % 1 - Welle nach innen
 % 2 - Sinusbecken
@@ -51,7 +51,7 @@ viewart = 1;
 % 7 - 45 grad y
 
 
-videoart = 1;
+videoart = 0;
 % 0 - kein Video
 % 1 - Video (wie geplottet)
 % 2 - Video (Echtzeit)

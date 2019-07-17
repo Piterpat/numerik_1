@@ -1,6 +1,6 @@
 %karten erstellen
-n=20;
-m=20;
+n=100;
+m=100;
 randkarte = zeros(n,m);
 
 x=linspace(l,r,n)';
