@@ -51,7 +51,7 @@ end
 if viewart == 5
     %view(90,0) zu view (45,45) in p schritten
     if n > d
-        view(((-45/(p-d))*(n-d))+90,(45/(p-d))*(n-d))
+        view(((45/(p-d))*(n-d))+90,(45/(p-d))*(n-d))
     else
         view(90,0)
     end
