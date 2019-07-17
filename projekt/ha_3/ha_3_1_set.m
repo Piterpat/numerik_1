@@ -8,13 +8,13 @@ kartenrand = 0;
 % 0 - absorbierend
 % 1 - reflektierend
 
-kartenart = 1;
+kartenart = 0;
 % 0 - nur Rand
 % 1 - Dammbruch Spalt
 % 2 - Pylon
 % 3 - Viertel
 
-anfangsbedingung=3;
+anfangsbedingung = 3;
 % 0 - Wassertropfen
 % 1 - Welle nach innen
 % 2 - Sinusbecken
@@ -29,7 +29,8 @@ bodenart = 0;
 % 4 - Flach
 % 5 - Kuppel
 
-viewart = 13;
+
+viewart = 5;
 % 0 - top-down
 % 1 - isometrisch
 % 2 - seite x
@@ -37,19 +38,21 @@ viewart = 13;
 % 4 - seite xy
 % 5 - seite y zu ismoetrisch
     p = 172;
+    d = 20;
 
-videoart = 0;
+videoart = 1;
 % 0 - kein Video
 % 1 - Video (wie geplottet)
 % 2 - Video (Echtzeit)
 
 %Start und Ende (Zeit)
 s=0;
-e=1;
+e=0.18;
+
 
 %linker und rechter Rand (Ort) fuer x oberer und unterer fuer y
-l=-1;
+l=0;
 r=1;
-u=-1;
+u=0;
 o=1;
 

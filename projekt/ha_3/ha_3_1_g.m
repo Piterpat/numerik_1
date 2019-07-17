@@ -31,10 +31,10 @@ function [z]=ha_3_1_g(x,y,anfangsbedingung)
             end
 
             if anfangsbedingung == 3
-                if i > 80
-                     z(i,ii)=10;
+                if i < 50
+                     z(i,ii)=1;
                 else
-                     z(i,ii)=4;
+                     z(i,ii)=0.5;
                 end
             end
             

@@ -6,16 +6,20 @@ if bodenart ~= 0
     hold on
     surf(x,y,B)
     hold off
-    axis(axis_set)
-    xlabel('X')
-    ylabel('Y')
 else
     Hplot(BER)=H(BER);
     surf(x,y,Hplot)
-    axis(axis_set)
-    xlabel('X')
-    ylabel('Y')
 end
+
+axis(axis_set)
+xlabel('X')
+ylabel('Y')
+zlabel('H')
+axis square
+
+grid off
+
+caxis(caxis_set)
 
 % 0 - top-down
 % 1 - isometrisch
@@ -46,12 +50,14 @@ end
 
 if viewart == 5
     %view(90,0) zu view (45,45) in p schritten
-    view(((-45/p)*n)+90,(45/p)*n)
+    if n > d
+        view(((-45/(p-d))*(n-d))+90,(45/(p-d))*(n-d))
+    else
+        view(90,0)
+    end
+    
 end
 
-axis square
-
-caxis(caxis_set)
 
 % colorbar
 
