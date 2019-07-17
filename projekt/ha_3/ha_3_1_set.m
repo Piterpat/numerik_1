@@ -35,7 +35,8 @@ bodenart = 0;
 % 4 - Flach
 % 5 - Kuppel
 
-viewart = 6;
+
+viewart = 5;
 % 0 - top-down
 % 1 - isometrisch
 % 2 - seite x
@@ -44,6 +45,7 @@ viewart = 6;
 % 5 - seite y zu ismoetrisch
 % 6 - Isometrisch 2
     p = 172;
+    d = 20;
 
 videoart = 0;
 % 0 - kein Video
@@ -52,7 +54,8 @@ videoart = 0;
 
 %Start und Ende (Zeit)
 s=0;
-e=10;
+e=0.18;
+
 
 %linker und rechter Rand (Ort) fuer x oberer und unterer fuer y
 l=-1;
