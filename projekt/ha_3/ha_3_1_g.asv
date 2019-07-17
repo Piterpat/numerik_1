@@ -51,11 +51,11 @@ function [z]=ha_3_1_g(x,y,anfangsbedingung)
                 end
             end
             
-            if anfangsbedingung == 6
-                if i < ((4*n)/5)
+            if anfangsbedingung == 3
+                if i < 80
                      z(i,ii)=4;
                 else
-                     z(i,ii)=6;
+                     z(i,ii)=15;
                 end
             end
             

@@ -8,10 +8,10 @@ if bodenart ~= 0
 else
     axis_set=[min(x) max(x)...
     min(y) max(x)...
-    min(min(H))-0.5 max(max(H))+0.5];
+    min(min(H))-2 max(max(H))+2];
 end
 
-caxis_set=[min(min(H)) max(max(H))+0.05];
+caxis_set=[min(min(H)) max(max(H))+1];
 
 if videoart ~= 0
     Frames=struct('cdata', cell(1, N), 'colormap', cell(1, N));

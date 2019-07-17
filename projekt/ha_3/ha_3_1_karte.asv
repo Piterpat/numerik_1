@@ -1,10 +1,7 @@
 %karten erstellen
-n=20;
-m=20;
+n=300;
+m=300;
 randkarte = zeros(n,m);
-
-x=linspace(l,r,n)';
-y=linspace(u,o,m)';
 
 % 0 - nur Rand
 % 1 - Dammbruch Spalt
@@ -58,11 +55,10 @@ for i=1:n
         end
         
         if kartenart == 6
-            if (x(i)+0.5)^2+(y(ii)+0.4)^2<0.02
+            if i < 80 && i > 70
+                if (ii > 10 && ii < 30) || (ii > 70 && ii < 90)
                     randkarte(i,ii)=abs_ref;
-            end
-            if (x(i)+0.5)^2 +(y(ii)-0.4)^2<0.02
-                    randkarte(i,ii)=abs_ref;
+                end
             end
         end
         

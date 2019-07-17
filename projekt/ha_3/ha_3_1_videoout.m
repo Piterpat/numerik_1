@@ -1,7 +1,7 @@
 if videoart ~= 0
         % create the video writer with 1 fps
       writerObj = VideoWriter('ha_3_1_video.avi');
-      writerObj.FrameRate = 10;
+      writerObj.FrameRate = 30;
       % set the seconds per image
     % open the video writer
     open(writerObj);

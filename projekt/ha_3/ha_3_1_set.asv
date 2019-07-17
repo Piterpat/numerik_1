@@ -20,7 +20,7 @@ kartenart = !;
 % 5 - Wellenbrecher Pfeiler
 % 6 - doppel saeulen 300
 
-anfangsbedingung = §;
+anfangsbedingung = 0;
 % 0 - Wassertropfen
 % 1 - Welle nach innen
 % 2 - Sinusbecken

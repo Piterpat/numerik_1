@@ -6,6 +6,8 @@ ha_3_1_karte
 ha_3_1_bodenterm
 ha_3_1_plotset
 
+tic
+
 while t<e
 
     
@@ -77,5 +79,7 @@ while t<e
     t=t+dt;
     n=n+1;
 end
+
+toc
 
 ha_3_1_videoout 
