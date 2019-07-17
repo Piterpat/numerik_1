@@ -8,11 +8,17 @@ kartenrand = 0;
 % 0 - absorbierend
 % 1 - reflektierend
 
-kartenart = 0;
+abs_ref = 2;
+% 1 - Innere Zellen der Karte absorbierend
+% 2 - Innere Zellen der Karte reflektierend
+
+kartenart = 4;
 % 0 - nur Rand
 % 1 - Dammbruch Spalt
 % 2 - Pylon
 % 3 - Viertel
+% 4 - Doppelspalt
+% 5 - Wellenbrecher Pfeiler
 
 anfangsbedingung = 3;
 % 0 - Wassertropfen
@@ -29,27 +35,28 @@ bodenart = 0;
 % 4 - Flach
 % 5 - Kuppel
 
-viewart = 3;
+viewart = 6;
 % 0 - top-down
 % 1 - isometrisch
 % 2 - seite x
 % 3 - seite y
 % 4 - seite xy
 % 5 - seite y zu ismoetrisch
+% 6 - Isometrisch 2
     p = 172;
 
-videoart = 1;
+videoart = 0;
 % 0 - kein Video
 % 1 - Video (wie geplottet)
 % 2 - Video (Echtzeit)
 
 %Start und Ende (Zeit)
 s=0;
-e=0.4;
+e=10;
 
 %linker und rechter Rand (Ort) fuer x oberer und unterer fuer y
-l=0;
+l=-1;
 r=1;
-u=0;
+u=-1;
 o=1;
 

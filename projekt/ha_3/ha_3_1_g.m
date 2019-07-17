@@ -31,7 +31,7 @@ function [z]=ha_3_1_g(x,y,anfangsbedingung)
             end
 
             if anfangsbedingung == 3
-                if i < 50
+                if i < n/2
                      z(i,ii)=1;
                 else
                      z(i,ii)=0.5;

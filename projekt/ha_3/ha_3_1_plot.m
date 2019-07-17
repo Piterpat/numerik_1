@@ -50,6 +50,10 @@ if viewart == 5
     view(((-45/p)*n)+90,(45/p)*n)
 end
 
+if viewart == 6
+    view(135,45)
+end
+
 axis square
 
 grid off
