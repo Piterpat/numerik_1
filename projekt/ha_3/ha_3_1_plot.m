@@ -14,8 +14,10 @@ end
 axis(axis_set)
 xlabel('X')
 ylabel('Y')
+zlabel('H')
 axis square
 
+grid off
 
 caxis(caxis_set)
 
