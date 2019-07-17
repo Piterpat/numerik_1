@@ -7,6 +7,8 @@ randkarte = zeros(n,m);
 % 1 - Dammbruch Spalt
 % 2 - Pylon
 % 3 - Viertel
+% 4 - Doppelspalt
+% 5 - Wellenbrecher Pfeiler
 
 for i=1:n
     for ii=1:m
@@ -14,7 +16,7 @@ for i=1:n
         if kartenart == 1
             if i < 80 && i > 70
                 if ii < 30 || ii > 50
-                    randkarte(i,ii)=2;
+                    randkarte(i,ii)=abs_ref;
                 end
             end
         end
@@ -22,7 +24,7 @@ for i=1:n
         if kartenart == 2
             if i < 60 && i > 40
                 if ii < 60 || ii > 40
-                    randkarte(i,ii)=2;
+                    randkarte(i,ii)=abs_ref;
                 end
             end
         end
@@ -30,11 +32,26 @@ for i=1:n
         if kartenart == 3
             if i < 100 && i > 50
                 if ii < 50 || ii > 100
-                    randkarte(i,ii)=2;
+                    randkarte(i,ii)=abs_ref;
                 end
             end
         end
         
+        if kartenart == 4
+            if i < 80 && i > 70
+                if (ii > 0 && ii < 30) ||(ii > 40 && ii < 60) || (ii > 70 && ii < 100)
+                    randkarte(i,ii)=abs_ref;
+                end
+            end
+        end
+        
+        if kartenart == 5
+            if i < 80 && i > 70
+                if (ii > 10 && ii < 30) || (ii > 70 && ii < 90)
+                    randkarte(i,ii)=abs_ref;
+                end
+            end
+        end
 
         if i==1 || i==n || ii==1 || ii==m
             if kartenrand == 0
