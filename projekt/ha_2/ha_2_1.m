@@ -3,12 +3,13 @@
 %Erhaltungsschemas
 ha_2_1_set
 
-while t<e
-    
+ while t<e
     %0) Plotten
     plot(x,H,'k')
     axis([l,r,low,up])
     axis square
+    xlabel('Y')
+    ylabel('Höhe')
     drawnow
     Frames(n) = getframe(gcf);
     
@@ -50,6 +51,6 @@ while t<e
     
     t=t+dt;
     n=n+1;
-end
+ end
 
 ha_2_1_video
