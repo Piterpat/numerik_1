@@ -11,7 +11,7 @@ abs_ref = 2;
 % 1 - Innere Zellen der Karte absorbierend
 % 2 - Innere Zellen der Karte reflektierend
 
-kartenart = 1;
+kartenart = 0;
 % 0 - nur Rand
 % 1 - Dammbruch Spalt
 % 2 - Pylon
@@ -20,16 +20,16 @@ kartenart = 1;
 % 5 - Wellenbrecher Pfeiler
 % 6 - doppel saeulen 300
 
-anfangsbedingung = 3;
+anfangsbedingung = 6;
 % 0 - Wassertropfen
 % 1 - Welle nach innen
 % 2 - Sinusbecken
 % 3 - Dammbruch
 % 4 - Flach
-% 5 - Valdierung
+% 5 - Validierung
 % 6 - welle 1/5
 
-bodenart = 0;
+bodenart = 2;
 % 0 - kein Boden
 % 1 - Wellenboden
 % 2 - Schraege
@@ -38,7 +38,7 @@ bodenart = 0;
 % 5 - Kuppel
 
 
-viewart = 1;
+viewart = 3;
 % 0 - top-down
 % 1 - isometrisch
 % 2 - seite x
@@ -51,14 +51,14 @@ viewart = 1;
 % 7 - 45 grad y
 
 
-videoart = 0;
+videoart = 1;
 % 0 - kein Video
 % 1 - Video (wie geplottet)
 % 2 - Video (Echtzeit)
 
 %Start und Ende (Zeit)
 s=0;
-e=1;
+e=0.5;
 
 
 %linker und rechter Rand (Ort) fuer x oberer und unterer fuer y

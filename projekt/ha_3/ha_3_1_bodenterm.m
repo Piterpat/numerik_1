@@ -16,7 +16,8 @@ if bodenart ~= 0
             end
 
             if bodenart == 2
-                B(i,ii)=-2.*i/N;
+                B(i,ii)=(-1.5.*i/N)+3.5;
+%                 B(i,ii)=(-5.*i/N)+3.5;
             end
 
             if bodenart == 3
