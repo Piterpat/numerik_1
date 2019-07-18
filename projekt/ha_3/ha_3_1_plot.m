@@ -19,6 +19,11 @@ axis(axis_set)
 axis square
 grid off
 
+%fancy shit
+% colormap cool
+shading interp
+set(gca,'visible','off')
+
 caxis(caxis_set)
 
 % 0 - top-down

@@ -9,7 +9,8 @@ ha_2_1_set
     axis([l,r,low,up])
     axis square
     xlabel('Y')
-    ylabel('Höhe')
+    ylabel('H')
+    box off
     drawnow
     Frames(n) = getframe(gcf);
     

@@ -5,6 +5,7 @@ function [z]=ha_3_1_g(x,y,anfangsbedingung)
 % 3 - Dammbruch
 % 4 - Flach
 % 5 - Validierung
+% 6 - Welle 1/5
 
     [n,~]=size(x);
     [m,~]=size(y);
@@ -52,7 +53,7 @@ function [z]=ha_3_1_g(x,y,anfangsbedingung)
             end
             
             if anfangsbedingung == 6
-                if i < ((2*n)/3)
+                if i < ((4*n)/5)
                      z(i,ii)=4;
                 else
                      z(i,ii)=6;

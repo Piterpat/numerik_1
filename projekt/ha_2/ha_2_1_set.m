@@ -3,20 +3,19 @@ clear
 g=9.81;
 
 CFL=1;
-f=@(x) ha_2_1_g(x);
 dB=0;
 
 
 l=-1;
 r=1;
-N=100;
+N=1000;
 dx=(r-l)./N;
 
 s=0;
 e=0.6;
 
 x=linspace(l,r,N)';
-H(:,1)=f(x(:,1));
+H(:,1)=ha_2_1_g(x(:,1),N);
 
 HU=zeros(N,1);
 F1=zeros(N,1);

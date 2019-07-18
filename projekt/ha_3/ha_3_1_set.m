@@ -3,6 +3,10 @@ g=9.81;
 
 CFL=(1./sqrt(2))-0.05;
 
+%aufloesung
+n=300;
+m=300;
+
 kartenrand = 1;
 % 0 - absorbierend
 % 1 - reflektierend
@@ -11,7 +15,7 @@ abs_ref = 2;
 % 1 - Innere Zellen der Karte absorbierend
 % 2 - Innere Zellen der Karte reflektierend
 
-kartenart = 0;
+kartenart = 6;
 % 0 - nur Rand
 % 1 - Dammbruch Spalt
 % 2 - Pylon
@@ -29,7 +33,7 @@ anfangsbedingung = 6;
 % 5 - Validierung
 % 6 - welle 1/5
 
-bodenart = 2;
+bodenart = 0;
 % 0 - kein Boden
 % 1 - Wellenboden
 % 2 - Schraege
@@ -38,7 +42,7 @@ bodenart = 2;
 % 5 - Kuppel
 
 
-viewart = 3;
+viewart = 0;
 % 0 - top-down
 % 1 - isometrisch
 % 2 - seite x
@@ -58,7 +62,7 @@ videoart = 1;
 
 %Start und Ende (Zeit)
 s=0;
-e=0.5;
+e=0.28;
 
 
 %linker und rechter Rand (Ort) fuer x oberer und unterer fuer y
