@@ -11,6 +11,7 @@ y=linspace(u,o,m)';
 % 4 - Doppelspalt
 % 5 - Wellenbrecher Pfeiler
 % 6 - doppel saeulen
+% 7 - Wellenbecken
 
 for i=1:n
     for ii=1:m
@@ -63,7 +64,7 @@ for i=1:n
                     randkarte(i,ii)=abs_ref;
             end
         end
-        
+                
 
         if i==1 || i==n || ii==1 || ii==m
             if kartenrand == 0
@@ -71,6 +72,17 @@ for i=1:n
             end
             if kartenrand == 1
                 randkarte(i,ii)=2;
+            end
+        end
+        
+        if kartenart == 7
+            if i == n
+                randkarte(i,ii) = 3;
+            end
+            if i < 80 && i > 70
+                if (ii > 0 && ii < 30) ||(ii > 40 && ii < 60) || (ii > 70 && ii < 100)
+                    randkarte(i,ii)=abs_ref;
+                end
             end
         end
         
@@ -98,6 +110,13 @@ BERr=find(~karter);
     r_Ind4x,r_Ind4y,r_Ind5_r,r_Ind5,...
     r_Ind6_r,r_Ind6x,r_Ind6y,r_Ind7_r,...
     r_Ind7,r_Ind8_r,r_Ind8x,r_Ind8y] = karte_ref(randkarte);
+[diri_Ind1_r,diri_Ind1,diri_Ind2_r,...
+    diri_Ind2x,diri_Ind2y,diri_Ind3_r,...
+    diri_Ind3,diri_Ind4_r,diri_Ind4x,...
+    diri_Ind4y,diri_Ind5_r,diri_Ind5,...
+    diri_Ind6_r,diri_Ind6x,diri_Ind6y,...
+    diri_Ind7_r,diri_Ind7,diri_Ind8_r,...
+    diri_Ind8x,diri_Ind8y] = karte_diri(randkarte);
 
 
 %Anzahl der Schritte N fuer x M fuer y

@@ -3,9 +3,16 @@ g=9.81;
 
 CFL=(1./sqrt(2))-0.05;
 
+% dirilet Randbedingung Anregung
+dirit =3;
+% 1 - groﬂe Welle
+% 2 - kleine Welle
+% 3 - riesige Welle
+
+
 %aufloesung
-n=300;
-m=300;
+n=100;
+m=100;
 
 kartenrand = 1;
 % 0 - absorbierend
@@ -15,7 +22,7 @@ abs_ref = 2;
 % 1 - Innere Zellen der Karte absorbierend
 % 2 - Innere Zellen der Karte reflektierend
 
-kartenart = 6;
+kartenart = 7;
 % 0 - nur Rand
 % 1 - Dammbruch Spalt
 % 2 - Pylon
@@ -23,8 +30,9 @@ kartenart = 6;
 % 4 - Doppelspalt
 % 5 - Wellenbrecher Pfeiler
 % 6 - doppel saeulen 300
+% 7 - Wellenbecken
 
-anfangsbedingung = 6;
+anfangsbedingung = 4;
 % 0 - Wassertropfen
 % 1 - Welle nach innen
 % 2 - Sinusbecken
@@ -42,7 +50,7 @@ bodenart = 0;
 % 5 - Kuppel
 
 
-viewart = 0;
+viewart = 1;
 % 0 - top-down
 % 1 - isometrisch
 % 2 - seite x
@@ -62,7 +70,7 @@ videoart = 1;
 
 %Start und Ende (Zeit)
 s=0;
-e=0.28;
+e=1;
 
 
 %linker und rechter Rand (Ort) fuer x oberer und unterer fuer y
