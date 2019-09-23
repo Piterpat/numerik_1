@@ -6,6 +6,9 @@ if bodenart ~= 0
     hold on
     surf(x,y,B)
     hold off
+elseif schadstoffart~=0
+Splot(BER)=S(BER);
+    surf(x,y,Splot)
 else
     Hplot(BER)=H(BER);
     surf(x,y,Hplot)
@@ -17,12 +20,12 @@ axis(axis_set)
 % zlabel('H')
 
 axis square
-grid off
+% grid off
 
 %fancy shit
 % colormap cool
-shading interp
-set(gca,'visible','off')
+% shading interp
+% set(gca,'visible','off')
 
 caxis(caxis_set)
 
