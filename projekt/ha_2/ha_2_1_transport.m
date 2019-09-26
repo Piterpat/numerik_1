@@ -61,10 +61,12 @@ ha_2_1_set
     
     %5) Randbedingungen
     H(1)=H(2);
-%     H(1)=sin(t*40).*0.03+1;
+%     H(1)=sin(t*40).*0.1+1;
     H(end)=H(end-1);
-    HU(1)=-HU(2);
-    HU(end)=-HU(end-1);
+    
+%     HU(1)=-HU(2);
+    HU(1)=1.2.*H(1);
+    HU(end)=HU(end-1);
     
     
     t=t+dt;

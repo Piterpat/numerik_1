@@ -5,6 +5,9 @@ ha_2_1_set
 
  while t<e
     %0) Plotten
+    if ~ishghandle(fig)
+        break
+    end
     plot(x,H,'k')
     axis([l,r,low,up])
     axis square

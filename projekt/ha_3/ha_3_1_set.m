@@ -3,26 +3,15 @@ g=9.81;
 
 CFL=(1./sqrt(2))-0.05;
 
-% dirilet Randbedingung Anregung
-dirit =3;
-% 1 - groﬂe Welle
-% 2 - kleine Welle
-% 3 - riesige Welle
-
 
 %aufloesung
 n=100;
 m=100;
 
-kartenrand = 0;
-% 0 - absorbierend
-% 1 - reflektierend
 
-abs_ref = 2;
-% 1 - Innere Zellen der Karte absorbierend
-% 2 - Innere Zellen der Karte reflektierend
 
-kartenart = 1;
+
+kartenart = 8;
 % 0 - nur Rand
 % 1 - Dammbruch Spalt
 % 2 - Pylon
@@ -31,8 +20,24 @@ kartenart = 1;
 % 5 - Wellenbrecher Pfeiler
 % 6 - doppel saeulen 300
 % 7 - Wellenbecken
+% 8 - Fluss
 
-anfangsbedingung = 3;
+    kartenrand = 0;
+    % 0 - absorbierend
+    % 1 - reflektierend
+
+    abs_ref = 2;
+    % 1 - Innere Zellen der Karte absorbierend
+    % 2 - Innere Zellen der Karte reflektierend
+    % 3 - dirilet Randbedingung Anregung
+
+    dirit = 4;
+    % 1 - kleine Welle
+    % 2 - groﬂe Welle
+    % 3 - riesige Welle
+    % 4 - Einflieﬂen
+
+anfangsbedingung = 6;
 % 0 - Wassertropfen
 % 1 - Welle nach innen
 % 2 - Sinusbecken
@@ -40,6 +45,7 @@ anfangsbedingung = 3;
 % 4 - Flach
 % 5 - Validierung
 % 6 - welle 1/5
+% 7 - Flussdammbruch
 
 bodenart = 0;
 % 0 - kein Boden
@@ -49,11 +55,12 @@ bodenart = 0;
 % 4 - Flach
 % 5 - Kuppel
 
-schadstoffart = 1;
+schadstoffart = 2;
 % 0 - kein Schadstoff
 % 1 - Zentrierter euler
+% 2 - Flussanfang
 
-viewart = 1;
+viewart = 0;
 % 0 - top-down
 % 1 - isometrisch
 % 2 - seite x
@@ -66,11 +73,12 @@ viewart = 1;
 % 7 - 45 grad y
 
 
-videoart = 0;
+videoart = 2;
 % 0 - kein Video
 % 1 - Video (wie geplottet)
 % 2 - Video (Echtzeit)
-
+    next_frame = 0; % First Frame
+    frame_int = 0.01;
 %Start und Ende (Zeit)
 s=0;
 e=1;

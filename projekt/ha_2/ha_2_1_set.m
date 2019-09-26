@@ -15,8 +15,8 @@ s=0;
 e=2;
 
 x=linspace(l,r,N)';
-H(:,1)=ha_2_1_g(x(:,1),N);
-% H(:,1)=ones(N,1);
+% H(:,1)=ha_2_1_g(x(:,1),N);
+H(:,1)=ones(N,1);
 
 HU=zeros(N,1);
 F1=zeros(N,1);

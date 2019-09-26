@@ -1,6 +1,8 @@
 %numerischer loeser einer eindimensionalen 
 %Erhaltungsgleichung mithilfe des
 %Erhaltungsschemas
+clear
+
 ha_3_1_set
 ha_3_1_karte
 ha_3_1_bodenterm
@@ -13,10 +15,17 @@ while t<e
 
     
     %0) Plotten
-    if ~ishghandle(fig)
-        break
+    if videoart == 2
+        if ~ishghandle(fig)
+            break
+        end
+        ha_3_1_plot
+    else
+        if ~ishghandle(fig)
+            break
+        end
+        ha_3_1_plot 
     end
-    ha_3_1_plot
     
     
     %1) CFL Bedingung
@@ -82,19 +91,17 @@ while t<e
         Cxn=Axn.*(dt./dx);
     
         Sx(2:end-1,:)=S(2:end-1,:)-Cxp(2:end-1,:).*(S(2:end-1,:)-S(1:end-2,:))-Cxn(2:end-1,:).*(S(3:end,:)-S(2:end-1,:));
-      
-        S=Sx;
         
         V=HV./H;
         
-        Ayp=(U+abs(U))./2;
-        Ayn=(U-abs(U))./2;
-        Cyp=Ayp.*(dt./dx);
-        Cyn=Ayn.*(dt./dx);
+        Ayp=(V+abs(V))./2;
+        Ayn=(V-abs(V))./2;
+        Cyp=Ayp.*(dt./dy);
+        Cyn=Ayn.*(dt./dy);
     
         Sy(:,2:end-1)=S(:,2:end-1)-Cyp(:,2:end-1).*(S(:,2:end-1)-S(:,1:end-2))-Cyn(:,2:end-1).*(S(:,3:end)-S(:,2:end-1));
 
-        S=(Sx-S)+(Sy-S)+S;
+        S=(Sx+Sy)./2;
         
         
 
