@@ -12,10 +12,22 @@ y=linspace(u,o,m)';
 % 5 - Wellenbrecher Pfeiler
 % 6 - doppel saeulen
 % 7 - Wellenbecken
+% 8 - Fluss
 
 for i=1:n
     for ii=1:m
 
+        %------------------------------------------------
+        if i==1 || i==n || ii==1 || ii==m
+            if kartenrand == 0
+                randkarte(i,ii)=1;
+            end
+            if kartenrand == 1
+                randkarte(i,ii)=2;
+            end
+        end
+        %------------------------------------------------
+        
         if kartenart == 1
             if i < 80 && i > 70
                 if ii < 30 || ii > 50
@@ -65,16 +77,6 @@ for i=1:n
             end
         end
                 
-
-        if i==1 || i==n || ii==1 || ii==m
-            if kartenrand == 0
-                randkarte(i,ii)=1;
-            end
-            if kartenrand == 1
-                randkarte(i,ii)=2;
-            end
-        end
-        
         if kartenart == 7
             if i == n
                 randkarte(i,ii) = 3;
@@ -86,6 +88,33 @@ for i=1:n
             end
         end
         
+        if kartenart == 8
+            
+            randkarte(i,ii)=2;
+
+            if (y(ii)>-0.9 && y(ii)<-0.5) && x(i)>-0.9
+                randkarte(i,ii)=0;
+            elseif (x(i)>-0.9 && x(i)<-0.5) && y(ii)>-0.9 && y(ii)<0.4
+                randkarte(i,ii)=0;
+            elseif (y(ii)>0 && y(ii)<0.4) && x(i)>-0.9 && x(i)<0.4
+                randkarte(i,ii)=0;
+            elseif (x(i)>0 && x(i)<0.4) && y(ii)>0
+                randkarte(i,ii)=0;
+            elseif (y(ii)>-0.9 && y(ii)<0.9) && x(i)>0.6
+                randkarte(i,ii)=0;
+            end
+            
+            if i==1 || ii==1 || ii==m
+                randkarte(i,ii)=1;
+            end
+            
+            if i == n
+                randkarte(i,ii) = 2;
+            end
+        end
+        
+        
+       
     end
 end
 

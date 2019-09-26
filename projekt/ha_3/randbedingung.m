@@ -62,40 +62,60 @@ HV((r_Ind8_r)) = -(dy .* HV((r_Ind8x)) + dx .* HV((r_Ind8y)))./(dx + dy);
  %-------------------------------------------------------------------------
  % dirichlet Randbedingung (3)
  
- if dirit == 1
-     diri = 0.5.*sin(50.*t) + 5;
- end
- if dirit == 2
-     diri = 0.1 .*sin(100.*t) +5;
- end
-  if dirit == 3
-     diri = 2 .*sin(50.*t) +5;
+ if dirit ~= 0 && dirit ~= 4
+     if dirit == 1
+         diri = 0.1.*sin(50.*t) + 5;
+     end
+     if dirit == 2
+         diri = 0.5 .*sin(100.*t) +5;
+     end
+      if dirit == 3
+         diri = 2 .*sin(50.*t) +5;
+     end
+
+
+    H((diri_Ind1_r)) = diri;
+    H((diri_Ind3_r)) = diri;
+    H((diri_Ind5_r)) = diri;
+    H((diri_Ind7_r)) = diri;
+    H((diri_Ind2_r)) = diri;
+    H((diri_Ind4_r)) = diri;
+    H((diri_Ind6_r)) = diri;
+    H((diri_Ind8_r)) = diri;
+
+    HU((diri_Ind1_r)) = HU((diri_Ind1));
+    HU((diri_Ind3_r)) = HU((diri_Ind3));
+    HU((diri_Ind5_r)) = HU((diri_Ind5));
+    HU((diri_Ind7_r)) = HU((diri_Ind7));
+    HU((diri_Ind2_r)) = (dy .* HU((diri_Ind2x)) + dx .* HU((diri_Ind2y)))./(dx + dy);
+    HU((diri_Ind4_r)) = (dy .* HU((diri_Ind4x)) + dx .* HU((diri_Ind4y)))./(dx + dy);
+    HU((diri_Ind6_r)) = (dy .* HU((diri_Ind6x)) + dx .* HU((diri_Ind6y)))./(dx + dy);
+    HU((diri_Ind8_r)) = (dy .* HU((diri_Ind8x)) + dx .* HU((diri_Ind8y)))./(dx + dy);
+
+    HV((diri_Ind1_r)) = HV((diri_Ind1));
+    HV((diri_Ind3_r)) = HV((diri_Ind3));
+    HV((diri_Ind5_r)) = HV((diri_Ind5));
+    HV((diri_Ind7_r)) = HV((diri_Ind7));
+    HV((diri_Ind2_r)) = (dy .* HV((diri_Ind2x)) + dx .* HV((diri_Ind2y)))./(dx + dy);
+    HV((diri_Ind4_r)) = (dy .* HV((diri_Ind4x)) + dx .* HV((diri_Ind4y)))./(dx + dy);
+    HV((diri_Ind6_r)) = (dy .* HV((diri_Ind6x)) + dx .* HV((diri_Ind6y)))./(dx + dy);
+    HV((diri_Ind8_r)) = (dy .* HV((diri_Ind8x)) + dx .* HV((diri_Ind8y)))./(dx + dy);
+ 
  end
  
-
- H((diri_Ind1_r)) = diri;
-H((diri_Ind3_r)) = diri;
-H((diri_Ind5_r)) = diri;
-H((diri_Ind7_r)) = diri;
-H((diri_Ind2_r)) = diri;
-H((diri_Ind4_r)) = diri;
-H((diri_Ind6_r)) = diri;
-H((diri_Ind8_r)) = diri;
+if dirit == 4
+    H((Ind1_r)) = H(Ind1);
+    H((Ind3_r)) = H((Ind3));
+    H((Ind5_r)) = H((Ind5));
+    H((Ind7_r)) = H((Ind7));
+    H((Ind2_r)) = (dy .* H((Ind2x)) + dx .* H((Ind2y)))./(dx + dy);
+    H((Ind4_r)) = (dy .* H((Ind4x)) + dx .* H((Ind4y)))./(dx + dy);
+    H((Ind6_r)) = (dy .* H((Ind6x)) + dx .* H((Ind6y)))./(dx + dy);
+    H((Ind8_r)) = (dy .* H((Ind8x)) + dx .* H((Ind8y)))./(dx + dy);
     
-HU((diri_Ind1_r)) = HU((diri_Ind1));
-HU((diri_Ind3_r)) = HU((diri_Ind3));
-HU((diri_Ind5_r)) = HU((diri_Ind5));
-HU((diri_Ind7_r)) = HU((diri_Ind7));
-HU((diri_Ind2_r)) = (dy .* HU((diri_Ind2x)) + dx .* HU((diri_Ind2y)))./(dx + dy);
-HU((diri_Ind4_r)) = (dy .* HU((diri_Ind4x)) + dx .* HU((diri_Ind4y)))./(dx + dy);
-HU((diri_Ind6_r)) = (dy .* HU((diri_Ind6x)) + dx .* HU((diri_Ind6y)))./(dx + dy);
-HU((diri_Ind8_r)) = (dy .* HU((diri_Ind8x)) + dx .* HU((diri_Ind8y)))./(dx + dy);
-
-HV((diri_Ind1_r)) = HV((diri_Ind1));
-HV((diri_Ind3_r)) = HV((diri_Ind3));
-HV((diri_Ind5_r)) = HV((diri_Ind5));
-HV((diri_Ind7_r)) = HV((diri_Ind7));
-HV((diri_Ind2_r)) = (dy .* HV((diri_Ind2x)) + dx .* HV((diri_Ind2y)))./(dx + dy);
-HV((diri_Ind4_r)) = (dy .* HV((diri_Ind4x)) + dx .* HV((diri_Ind4y)))./(dx + dy);
-HV((diri_Ind6_r)) = (dy .* HV((diri_Ind6x)) + dx .* HV((diri_Ind6y)))./(dx + dy);
-HV((diri_Ind8_r)) = (dy .* HV((diri_Ind8x)) + dx .* HV((diri_Ind8y)))./(dx + dy);
+    HU((diri_Ind1_r)) = -10.*H((diri_Ind1));
+    HU((diri_Ind3_r)) = -10.*H((diri_Ind3));
+    HU((diri_Ind5_r)) = -10.*H((diri_Ind5));
+    HU((diri_Ind7_r)) = -10.*H((diri_Ind7));
+    
+end
