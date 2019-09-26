@@ -4,6 +4,7 @@
 ha_3_1_set
 ha_3_1_karte
 ha_3_1_bodenterm
+ha_3_1_schadstoffset
 ha_3_1_plotset
 
 tic
@@ -72,8 +73,32 @@ while t<e
         -((dt./dx).*(F1h(BER)-F1h(BERr)))...
         -((dt./dy).*(G1h(BER)-G1h(BERu)));
     
+      %5) Schadstoff
+        U=HU./H;
+        
+        Axp=(U+abs(U))./2;
+        Axn=(U-abs(U))./2;
+        Cxp=Axp.*(dt./dx);
+        Cxn=Axn.*(dt./dx);
+    
+        Sx(2:end-1,:)=S(2:end-1,:)-Cxp(2:end-1,:).*(S(2:end-1,:)-S(1:end-2,:))-Cxn(2:end-1,:).*(S(3:end,:)-S(2:end-1,:));
+      
+        S=Sx;
+        
+        V=HV./H;
+        
+        Ayp=(U+abs(U))./2;
+        Ayn=(U-abs(U))./2;
+        Cyp=Ayp.*(dt./dx);
+        Cyn=Ayn.*(dt./dx);
+    
+        Sy(:,2:end-1)=S(:,2:end-1)-Cyp(:,2:end-1).*(S(:,2:end-1)-S(:,1:end-2))-Cyn(:,2:end-1).*(S(:,3:end)-S(:,2:end-1));
 
-      %5) Randbedingung
+        S=(Sx-S)+(Sy-S)+S;
+        
+        
+
+      %6) Randbedingung
       randbedingung
 
     t=t+dt;
