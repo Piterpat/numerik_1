@@ -31,11 +31,13 @@ kartenart = 8;
     % 2 - Innere Zellen der Karte reflektierend
     % 3 - dirilet Randbedingung Anregung
 
-    dirit = 3;
+    dirit = 2;
     % 1 - kleine Welle
     % 2 - groﬂe Welle
     % 3 - riesige Welle
     % 4 - Einflieﬂen
+%     Impuls angeben
+imp = 10;
 
 anfangsbedingung = 7;
 % 0 - Wassertropfen
@@ -79,8 +81,8 @@ videoart = 2;
 % 2 - Video (Echtzeit)
     next_frame = 0; % First Frame
     frame_int = 0.1;
-    
-videoname = "ha_3_1_video";
+
+    videoname = "ha_3_1_video";
     
 %Start und Ende (Zeit)
 s=0;
