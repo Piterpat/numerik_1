@@ -62,7 +62,7 @@ schadstoffart = 2;
 % 1 - Zentrierter euler
 % 2 - Flussanfang
 
-viewart = 0;
+viewart = 1;
 % 0 - top-down
 % 1 - isometrisch
 % 2 - seite x
@@ -74,13 +74,16 @@ viewart = 0;
 % 6 - Isometrisch 2
 % 7 - 45 grad y
 
-
-videoart = 2;
-% 0 - kein Video
-% 1 - Video (wie geplottet)
-% 2 - Video (Echtzeit)
+realtime = 0;
+% 0 - Frame pro Rechenschritt
+% 1 - Frame pro Zeitintervall
     next_frame = 0; % First Frame
     frame_int = 0.1;
+
+
+videoart = 0;
+% 0 - kein Video
+% 1 - Video (wie geplottet)
 
     videoname = "ha_3_1_video";
     

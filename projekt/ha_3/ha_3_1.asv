@@ -15,7 +15,7 @@ while t<e
 
     
     %0) Plotten
-    if realtime == 1
+    if videoart == 2
         if t >= next_frame
             if ~ishghandle(fig)
                 break
@@ -87,7 +87,7 @@ while t<e
         -((dt./dy).*(G1h(BER)-G1h(BERu)));
     
       %5) Schadstoff
-    if schadstoffart ~= 0
+      if
         U=HU./H;
         
         Axp=(U+abs(U))./2;
@@ -107,7 +107,7 @@ while t<e
         Sy(:,2:end-1)=S(:,2:end-1)-Cyp(:,2:end-1).*(S(:,2:end-1)-S(:,1:end-2))-Cyn(:,2:end-1).*(S(:,3:end)-S(:,2:end-1));
 
         S=(Sx+Sy)./2;
-    end
+        
         
 
       %6) Randbedingung
