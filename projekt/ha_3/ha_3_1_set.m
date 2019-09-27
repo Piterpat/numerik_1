@@ -31,13 +31,13 @@ kartenart = 8;
     % 2 - Innere Zellen der Karte reflektierend
     % 3 - dirilet Randbedingung Anregung
 
-    dirit = 4;
+    dirit = 3;
     % 1 - kleine Welle
     % 2 - groﬂe Welle
     % 3 - riesige Welle
     % 4 - Einflieﬂen
 
-anfangsbedingung = 6;
+anfangsbedingung = 7;
 % 0 - Wassertropfen
 % 1 - Welle nach innen
 % 2 - Sinusbecken
@@ -78,7 +78,10 @@ videoart = 2;
 % 1 - Video (wie geplottet)
 % 2 - Video (Echtzeit)
     next_frame = 0; % First Frame
-    frame_int = 0.01;
+    frame_int = 0.1;
+    
+videoname = "ha_3_1_video";
+    
 %Start und Ende (Zeit)
 s=0;
 e=1;
@@ -89,4 +92,6 @@ l=-1;
 r=1;
 u=-1;
 o=1;
+
+
 

@@ -34,9 +34,6 @@ if schadstoffart~=0
     shading interp
     axis(axis_set_S)
     view(45,45)
-
-    
-    drawnow
     
 else
     if bodenart ~= 0
@@ -111,14 +108,10 @@ else
     if viewart == 7
         view(90,45)
     end
-
-
-
-    % colorbar
-
-    drawnow
 end
-    
+
+drawnow
+
 if videoart ~= 0
-    Frames(n) = getframe(gcf);
+    writeVideo(v,getframe(ax))
 end

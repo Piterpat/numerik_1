@@ -27,7 +27,10 @@ else
     caxis_set=[min(min(H)) max(max(H))+1];
 end
 
-
 if videoart ~= 0
-    Frames=struct('cdata', cell(1, N), 'colormap', cell(1, N));
+%     nframes=50;
+%     Frames=moviein(nframes);
+    v = VideoWriter(videoname+".avi");
+    open(v)
+    ax = fig;
 end

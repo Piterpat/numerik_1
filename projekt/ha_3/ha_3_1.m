@@ -16,10 +16,14 @@ while t<e
     
     %0) Plotten
     if videoart == 2
-        if ~ishghandle(fig)
-            break
+        if t >= next_frame
+            if ~ishghandle(fig)
+                break
+            end
+            ha_3_1_plot
+            next_frame = next_frame + frame_int;
+            t
         end
-        ha_3_1_plot
     else
         if ~ishghandle(fig)
             break
@@ -114,4 +118,6 @@ end
 
 toc
 
-ha_3_1_videoout 
+if videoart ~= 0
+    close(v)
+end
