@@ -8,7 +8,7 @@ CFL=(1./sqrt(2))-0.05;
 n=100;
 m=100;
 
-verfahren = 0;
+verfahren = 1;
 % 0 - Lax-Friedrich
 % 1 - Rusanov
 
@@ -23,6 +23,7 @@ kartenart = 9;
 % 6 - doppel saeulen 300
 % 7 - Wellenbecken
 % 8 - Fluss
+% 9 - Boot auf Meer (0,10,0,20,relativ)
 
     kartenrand = 1;
     % 0 - absorbierend
@@ -33,13 +34,16 @@ kartenart = 9;
     % 2 - Innere Zellen der Karte reflektierend
     % 3 - dirilet Randbedingung Anregung
 
-    dirit = 2;
-    % 1 - kleine Welle
-    % 2 - große Welle
-    % 3 - riesige Welle
-    % 4 - Einfließen
-%     Impuls angeben
-imp = 10;
+    dirit = 1;
+    % 0 - kein dirit
+    % 1 - x Seitig Höhe
+    % 2 - x Seitig Impuls
+    % 3 - y Seitig Höhe
+    % 4 - y Seitig Impuls
+        hei = 1;
+            % 1 - Welle
+        imp = 1;
+            % 1 - Welle
 
 anfangsbedingung = 4;
 % 0 - Wassertropfen
@@ -81,7 +85,7 @@ viewart = 1;
 % 7 - 45 grad y
 
 
-plotart = 2;
+plotart = 1;
 % 0 - nicht plotten
 % 1 - Frame pro Rechenschritt
 % 2 - Frame pro Zeitintervall
@@ -97,11 +101,11 @@ videoart = 0;
     
 %Start und Ende (Zeit)
 s=0;
-e=1;
+e=10;
 
 
 %linker und rechter Rand (Ort) fuer x oberer und unterer fuer y
 l=0;
-r=10;
+r=2;
 u=0;
-o=20;
+o=1;

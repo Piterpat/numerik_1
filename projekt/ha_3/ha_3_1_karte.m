@@ -13,6 +13,7 @@ y=linspace(u,o,m)';
 % 6 - doppel saeulen
 % 7 - Wellenbecken
 % 8 - Fluss
+% 9 - Boot auf Meer (0,10,0,20,relativ)
 
 for i=1:n
     for ii=1:m
@@ -113,7 +114,30 @@ for i=1:n
             end
         end
         
-        
+        if kartenart == 9
+            
+            randkarte(i,ii)=0;
+
+%             if (y(ii)>-0.9 && y(ii)<-0.5) && x(i)>-0.9
+%                 randkarte(i,ii)=0;
+%             elseif (x(i)>-0.9 && x(i)<-0.5) && y(ii)>-0.9 && y(ii)<0.4
+%                 randkarte(i,ii)=0;
+%             elseif (y(ii)>0 && y(ii)<0.4) && x(i)>-0.9 && x(i)<0.4
+%                 randkarte(i,ii)=0;
+%             elseif (x(i)>0 && x(i)<0.4) && y(ii)>0
+%                 randkarte(i,ii)=0;
+%             elseif (y(ii)>-0.9 && y(ii)<0.9) && x(i)>0.6
+%                 randkarte(i,ii)=0;
+%             end
+            
+            if i==1 || i==n || ii==m
+                randkarte(i,ii) = 1;
+            end
+            
+            if ii == 1
+                randkarte(i,ii) = 3;
+            end
+        end
        
     end
 end

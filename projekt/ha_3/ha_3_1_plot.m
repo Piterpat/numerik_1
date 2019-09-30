@@ -35,10 +35,10 @@ if schadstoffart~=0
         mesh(x(1:griddiv:end),y(1:griddiv:end),Bplot(1:griddiv:end,1:griddiv:end))
         hold off
     end
-    axis(axis_set_H)
     caxis(caxis_set_H)
     shading interp
     axis equal
+    axis(axis_set_H)
     view(45,45)
 
     subplot(2,2,4)
