@@ -12,7 +12,7 @@ if bodenart ~= 0
         for ii=1:N
 
             if bodenart == 1
-                B(i,ii)=sin(x(i).*pi);
+                B(i,ii)=sin(x(i).*pi)-2;
             end
 
             if bodenart == 2

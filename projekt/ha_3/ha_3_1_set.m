@@ -8,10 +8,12 @@ CFL=(1./sqrt(2))-0.05;
 n=100;
 m=100;
 
+verfahren = 0;
+% 0 - Lax-Friedrich
+% 1 - Rusanov
 
 
-
-kartenart = 8;
+kartenart = 9;
 % 0 - nur Rand
 % 1 - Dammbruch Spalt
 % 2 - Pylon
@@ -22,7 +24,7 @@ kartenart = 8;
 % 7 - Wellenbecken
 % 8 - Fluss
 
-    kartenrand = 0;
+    kartenrand = 1;
     % 0 - absorbierend
     % 1 - reflektierend
 
@@ -39,7 +41,7 @@ kartenart = 8;
 %     Impuls angeben
 imp = 10;
 
-anfangsbedingung = 7;
+anfangsbedingung = 4;
 % 0 - Wassertropfen
 % 1 - Welle nach innen
 % 2 - Sinusbecken
@@ -48,6 +50,7 @@ anfangsbedingung = 7;
 % 5 - Validierung
 % 6 - welle 1/5
 % 7 - Flussdammbruch
+% 8 - projektaufgabe kasten
 
 bodenart = 0;
 % 0 - kein Boden
@@ -56,11 +59,14 @@ bodenart = 0;
 % 3 - Stufe
 % 4 - Flach
 % 5 - Kuppel
+    griddiv = 5;
 
 schadstoffart = 2;
 % 0 - kein Schadstoff
 % 1 - Zentrierter euler
-% 2 - Flussanfang
+% 2 - Flussanfang euler
+% 3 - Diffusionstest
+% 4 - Schadstoff Becken (zu Flussdammbruch)
 
 viewart = 1;
 % 0 - top-down
@@ -74,9 +80,11 @@ viewart = 1;
 % 6 - Isometrisch 2
 % 7 - 45 grad y
 
-realtime = 0;
-% 0 - Frame pro Rechenschritt
-% 1 - Frame pro Zeitintervall
+
+plotart = 2;
+% 0 - nicht plotten
+% 1 - Frame pro Rechenschritt
+% 2 - Frame pro Zeitintervall
     next_frame = 0; % First Frame
     frame_int = 0.1;
 
@@ -93,10 +101,7 @@ e=1;
 
 
 %linker und rechter Rand (Ort) fuer x oberer und unterer fuer y
-l=-1;
-r=1;
-u=-1;
-o=1;
-
-
-
+l=0;
+r=10;
+u=0;
+o=20;

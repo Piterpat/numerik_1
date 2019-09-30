@@ -15,27 +15,43 @@ while t<e
 
     
     %0) Plotten
-    if realtime == 1
-        if t >= next_frame
+    if plotart ~= 0
+        if plotart == 1
             if ~ishghandle(fig)
                 break
             end
-            ha_3_1_plot
-            next_frame = next_frame + frame_int;
-            t
+            ha_3_1_plot 
+        elseif plotart == 2
+            if t >= next_frame
+                if ~ishghandle(fig)
+                    break
+                end
+                ha_3_1_plot
+                next_frame = next_frame + frame_int;
+    %             t
+
+            end
         end
-    else
-        if ~ishghandle(fig)
-            break
-        end
-        ha_3_1_plot 
     end
     
     
-    %1) CFL Bedingung
+    %1) CFL Bedingung/Vorfaktor
     a=max([max(abs(HU./H)+abs(sqrt(g.*H+(HU./H).^2))),...
-        max(abs(HV./H)+abs(sqrt(g.*H+(HV./H).^2)))]);
+    max(abs(HV./H)+abs(sqrt(g.*H+(HV./H).^2)))]);
     dt=CFL.*(min([dx,dy])./a);
+    
+    if verfahren == 0
+        vff=dx./(4.*dt);
+        vfg=dx./(4.*dt);
+    elseif verfahren == 1
+        vff=0.25.*((abs(HU./H)+abs(sqrt(g.*H+(HU./H).^2))));
+        vfg=0.25.*((abs(HV./H)+abs(sqrt(g.*H+(HV./H).^2))));
+        vff=vff(1:end-1,:);
+        vfg=vfg(:,1:end-1);
+    else
+        error('Ungueltiges Verfahren ausgewaehlt (In ha_3_1_set aendern)')
+    end
+
     
     %2) Flussgroessen Zellmittelpunkt
     F1=HU;
@@ -47,19 +63,18 @@ while t<e
     G3=(((HV).^2)./H)+(0.5.*g.*(H.^2));
     
     %3) Approximation der Flussgroessen
-    vf=dx./(4.*dt);
-    F1h(1:end-1,:)=(vf.*(H(1:end-1,:)-H(2:end,:)))...
+    F1h(1:end-1,:)=(vff.*(H(1:end-1,:)-H(2:end,:)))...
         +(0.5.*(F1(1:end-1,:)+F1(2:end,:)));
-    F2h(1:end-1,:)=(vf.*(HU(1:end-1,:)-HU(2:end,:)))...
+    F2h(1:end-1,:)=(vff.*(HU(1:end-1,:)-HU(2:end,:)))...
         +(0.5.*(F2(1:end-1,:)+F2(2:end,:)));
-    F3h(1:end-1,:)=(vf.*(HV(1:end-1,:)-HV(2:end,:)))...
+    F3h(1:end-1,:)=(vff.*(HV(1:end-1,:)-HV(2:end,:)))...
         +(0.5.*(F3(1:end-1,:)+F3(2:end,:)));
     
-    G1h(:,1:end-1)=(vf.*(H(:,1:end-1)-H(:,2:end)))...
+    G1h(:,1:end-1)=(vfg.*(H(:,1:end-1)-H(:,2:end)))...
         +(0.5.*(G1(:,1:end-1)+G1(:,2:end)));
-    G2h(:,1:end-1)=(vf.*(HU(:,1:end-1)-HU(:,2:end)))...
+    G2h(:,1:end-1)=(vfg.*(HU(:,1:end-1)-HU(:,2:end)))...
         +(0.5.*(G2(:,1:end-1)+G2(:,2:end)));
-    G3h(:,1:end-1)=(vf.*(HV(:,1:end-1)-HV(:,2:end,:)))...
+    G3h(:,1:end-1)=(vfg.*(HV(:,1:end-1)-HV(:,2:end,:)))...
         +(0.5.*(G3(:,1:end-1)+G3(:,2:end)));
     
     
@@ -94,8 +109,6 @@ while t<e
         Axn=(U-abs(U))./2;
         Cxp=Axp.*(dt./dx);
         Cxn=Axn.*(dt./dx);
-    
-        Sx(2:end-1,:)=S(2:end-1,:)-Cxp(2:end-1,:).*(S(2:end-1,:)-S(1:end-2,:))-Cxn(2:end-1,:).*(S(3:end,:)-S(2:end-1,:));
         
         V=HV./H;
         
@@ -103,12 +116,20 @@ while t<e
         Ayn=(V-abs(V))./2;
         Cyp=Ayp.*(dt./dy);
         Cyn=Ayn.*(dt./dy);
-    
-        Sy(:,2:end-1)=S(:,2:end-1)-Cyp(:,2:end-1).*(S(:,2:end-1)-S(:,1:end-2))-Cyn(:,2:end-1).*(S(:,3:end)-S(:,2:end-1));
-
-        S=(Sx+Sy)./2;
-    end
         
+
+        Sx(2:end-1,:)=S(2:end-1,:)...
+            -Cxp(2:end-1,:).*(S(2:end-1,:)-S(1:end-2,:))...
+            -Cxn(2:end-1,:).*(S(3:end,:)-S(2:end-1,:));
+
+        Sy(:,2:end-1)=S(:,2:end-1)...
+            -Cyp(:,2:end-1).*(S(:,2:end-1)-S(:,1:end-2))...
+            -Cyn(:,2:end-1).*(S(:,3:end)-S(:,2:end-1));
+
+%             S=(Sx+Sy)./2;
+        S=(Sx-S)+(Sy-S)+S;
+    end
+
 
       %6) Randbedingung
       randbedingung

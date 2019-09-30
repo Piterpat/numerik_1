@@ -105,7 +105,7 @@ for i=1:n
             end
             
             if i==1 || ii==1 || ii==m
-                randkarte(i,ii)=1;
+                randkarte(i,ii) = 1;
             end
             
             if i == n

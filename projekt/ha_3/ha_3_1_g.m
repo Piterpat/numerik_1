@@ -6,6 +6,8 @@ function [z]=ha_3_1_g(x,y,anfangsbedingung)
 % 4 - Flach
 % 5 - Validierung
 % 6 - Welle 1/5
+% 7 - Flussdammbruch
+% 8 - projektaufgabe kasten
 
     [n,~]=size(x);
     [m,~]=size(y);
@@ -61,13 +63,21 @@ function [z]=ha_3_1_g(x,y,anfangsbedingung)
             end
             
             if anfangsbedingung == 7
-                if i < ((4*n)/5)
+                if x(i) < 0.6
                      z(i,ii)=4;
                 else
                      z(i,ii)=50;
                 end
             end
             
+            if anfangsbedingung == 8
+                if x(i) >= 0.4 && x(i) <= 0.6 ...
+                        && y(ii) >= 0.4 && y(ii) <= 0.6
+                     z(i,ii)=2;
+                else
+                     z(i,ii)=0.5;
+                end
+            end
             
         end
     end

@@ -41,23 +41,45 @@ H((r_Ind4_r)) = (dy .* H((r_Ind4x)) + dx .* H((r_Ind4y)))./(dx + dy);
 H((r_Ind6_r)) = (dy .* H((r_Ind6x)) + dx .* H((r_Ind6y)))./(dx + dy);
 H((r_Ind8_r)) = (dy .* H((r_Ind8x)) + dx .* H((r_Ind8y)))./(dx + dy);
 
+
 HU((r_Ind1_r)) = HU((r_Ind1));
 HU((r_Ind3_r)) = -HU((r_Ind3));
 HU((r_Ind5_r)) = HU((r_Ind5));
 HU((r_Ind7_r)) = -HU((r_Ind7));
+
+% HU((r_Ind2_r)) = 0;
+% HU((r_Ind4_r)) = 0;
+% HU((r_Ind6_r)) = 0;
+% HU((r_Ind8_r)) = 0;
+% HU((r_Ind2_r)) = -(dy .* HU((r_Ind2x)) + dx .* HU((r_Ind2y)))./(dx + dy);
+% HU((r_Ind4_r)) = -(dy .* HU((r_Ind4x)) + dx .* HU((r_Ind4y)))./(dx + dy);
+% HU((r_Ind6_r)) = -(dy .* HU((r_Ind6x)) + dx .* HU((r_Ind6y)))./(dx + dy);
+% HU((r_Ind8_r)) = -(dy .* HU((r_Ind8x)) + dx .* HU((r_Ind8y)))./(dx + dy);
 HU((r_Ind2_r)) = -(dy .* HU((r_Ind2x)) + dx .* HU((r_Ind2y)))./(dx + dy);
 HU((r_Ind4_r)) = -(dy .* HU((r_Ind4x)) + dx .* HU((r_Ind4y)))./(dx + dy);
 HU((r_Ind6_r)) = -(dy .* HU((r_Ind6x)) + dx .* HU((r_Ind6y)))./(dx + dy);
 HU((r_Ind8_r)) = -(dy .* HU((r_Ind8x)) + dx .* HU((r_Ind8y)))./(dx + dy);
 
+
 HV((r_Ind1_r)) = -HV((r_Ind1));
 HV((r_Ind3_r)) = HV((r_Ind3));
 HV((r_Ind5_r)) = -HV((r_Ind5));
 HV((r_Ind7_r)) = HV((r_Ind7));
+
+% HV((r_Ind2_r)) = 0;
+% HV((r_Ind4_r)) = 0;
+% HV((r_Ind6_r)) = 0;
+% HV((r_Ind8_r)) = 0;
+% HV((r_Ind2_r)) = -(dy .* HV((r_Ind2x)) + dx .* HV((r_Ind2y)))./(dx + dy);
+% HV((r_Ind4_r)) = -(dy .* HV((r_Ind4x)) + dx .* HV((r_Ind4y)))./(dx + dy);
+% HV((r_Ind6_r)) = -(dy .* HV((r_Ind6x)) + dx .* HV((r_Ind6y)))./(dx + dy);
+% HV((r_Ind8_r)) = -(dy .* HV((r_Ind8x)) + dx .* HV((r_Ind8y)))./(dx + dy);
 HV((r_Ind2_r)) = -(dy .* HV((r_Ind2x)) + dx .* HV((r_Ind2y)))./(dx + dy);
 HV((r_Ind4_r)) = -(dy .* HV((r_Ind4x)) + dx .* HV((r_Ind4y)))./(dx + dy);
 HV((r_Ind6_r)) = -(dy .* HV((r_Ind6x)) + dx .* HV((r_Ind6y)))./(dx + dy);
 HV((r_Ind8_r)) = -(dy .* HV((r_Ind8x)) + dx .* HV((r_Ind8y)))./(dx + dy);
+
+
 
  %-------------------------------------------------------------------------
  % dirichlet Randbedingung (3)
