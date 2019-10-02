@@ -13,7 +13,7 @@ if bodenart~=0
 else
     axis_set_H=[ymin ymax...
     xmin xmax...
-    min(min(H)-2) max(max(H))+2];
+    min(min(H)-1) max(max(H))+1];
 
 end
 

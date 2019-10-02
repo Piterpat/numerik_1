@@ -12,19 +12,19 @@ end
 
 if schadstoffart~=0
     
-%     subplot(2,2,1)
-%     surf(y,x,Hplot)
-%     caxis(caxis_set_H)
-%     shading interp
-%     axis(axis_set_H)
-%     axis equal
-%     view(0,90)
-% %     xlabel('Y')
-% %     ylabel('X')
-%     grid off
-% %     set(gca,'visible','off')
+    subplot(1,2,1)
+    surf(y,x,Hplot)
+    caxis(caxis_set_H)
+    shading interp
+    axis(axis_set_H)
+    axis equal
+    view(0,90)
+%     xlabel('Y')
+%     ylabel('X')
+    grid off
+%     set(gca,'visible','off')
     
-%     subplot(2,2,2)
+    subplot(1,2,2)
     surf(y,x,Splot)
     caxis(caxis_set_S)
     shading interp
@@ -36,8 +36,8 @@ if schadstoffart~=0
     grid off
 %     set(gca,'visible','off')
 
-%     
-%     subplot(2,2,3)
+% %     
+%     subplot(1,2,1)
 %     surf(y,x,Hplot)
 %     if bodenart ~= 0
 %         hold on
@@ -46,11 +46,11 @@ if schadstoffart~=0
 %     end
 %     caxis(caxis_set_H)
 %     shading interp
-% %     axis equal
+%     axis equal
 %     axis(axis_set_H)
 %     view(45,45)
 %     grid off
-% %     set(gca,'visible','off')
+%     set(gca,'visible','off')
 % 
 % 
 %     subplot(2,2,4)

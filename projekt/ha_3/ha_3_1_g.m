@@ -8,6 +8,7 @@ function [z]=ha_3_1_g(x,y,anfangsbedingung)
 % 6 - Welle 1/5
 % 7 - Flussdammbruch
 % 8 - projektaufgabe kasten
+% 9 - Dambbruch der 3.
 
     [n,~]=size(x);
     [m,~]=size(y);
@@ -76,6 +77,14 @@ function [z]=ha_3_1_g(x,y,anfangsbedingung)
                      z(i,ii)=2;
                 else
                      z(i,ii)=0.5;
+                end
+            end
+            
+             if anfangsbedingung == 9
+                if x(i)>=0.5 && y(ii)>=0.05 && y(ii)<=0.55
+                    z(i,ii)=50;
+                else
+                    z(i,ii)=5;
                 end
             end
             

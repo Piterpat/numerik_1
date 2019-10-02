@@ -6,6 +6,7 @@ if schadstoffart ~= 0
     % 4 - Schadstoff Becken (zu Flussdammbruch)
     % 5 - Leck am Boot (unendliche Quelle)
     % 6 - Haus im Tsunami
+    % 7 - Dammbruch der 3.
     
     S=zeros(n,m);
     Sx=zeros(n,m);
@@ -43,6 +44,12 @@ if schadstoffart ~= 0
             if schadstoffart == 6
                 if (y(ii)>0.25 && y(ii)<0.45) && (x(i)>0.4 && x(i)<0.6)
                     S(i,ii)=2;
+                end
+            end
+            
+            if schadstoffart == 7
+                if x(i)>=0.5 && x(i)<=0.65 && y(ii)>=0.05 && y(ii)<=0.55
+                    S(i,ii)=1;
                 end
             end
             

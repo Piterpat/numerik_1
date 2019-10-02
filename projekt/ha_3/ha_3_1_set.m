@@ -5,15 +5,15 @@ CFL=(1./sqrt(2))-0.05;
 
 
 %aufloesung
-n=150;
-m=300;
+n=200;
+m=400;
 
 verfahren = 1;
 % 0 - Lax-Friedrich
 % 1 - Rusanov
 
 
-kartenart = 9;
+kartenart = 11;
 % 0 - nur Rand
 % 1 - Dammbruch Spalt
 % 2 - Pylon
@@ -25,6 +25,7 @@ kartenart = 9;
 % 8 - Fluss
 % 9 - Boot auf Meer (0,10,0,20,relativ)
 % 10 - Haeuser in Tsunami
+% 11 - Dammbruch der 3.
 
     kartenrand = 1;
     % 0 - absorbierend
@@ -35,19 +36,20 @@ kartenart = 9;
     % 2 - Innere Zellen der Karte reflektierend
     % 3 - dirilet Randbedingung Anregung
 
-    dirit = 2;
+    dirit = 1;
     % 0 - kein dirit
     % 1 - y Seitig Höhe
     % 2 - y Seitig Impuls
     % 3 - x Seitig Höhe
     % 4 - x Seitig Impuls
         hei = 1;
+            % 0 - stetig (50)
             % 1 - Welle
         imp = 1;
-            % 0 - stetig (10)
+            % 0 - stetig (6)
             % 1 - Welle
 
-anfangsbedingung = 4;
+anfangsbedingung = 9;
 % 0 - Wassertropfen
 % 1 - Welle nach innen
 % 2 - Sinusbecken
@@ -57,6 +59,7 @@ anfangsbedingung = 4;
 % 6 - welle 1/5
 % 7 - Flussdammbruch
 % 8 - projektaufgabe kasten
+% 9 - Dammbruch der 3.
 
 bodenart = 0;
 % 0 - kein Boden
@@ -67,7 +70,7 @@ bodenart = 0;
 % 5 - Kuppel
     griddiv = 5;
 
-schadstoffart = 5;
+schadstoffart = 7;
 % 0 - kein Schadstoff
 % 1 - Zentrierter euler
 % 2 - Flussanfang euler
@@ -75,6 +78,7 @@ schadstoffart = 5;
 % 4 - Schadstoff Becken (zu Flussdammbruch)
 % 5 - Leck am Boot (unendliche Quelle)
 % 6 - Haus im Tsunami
+% 7 - Dammbruch der 3.
 
 viewart = 1;
 % 0 - top-down
@@ -94,10 +98,10 @@ plotart = 2;
 % 1 - Frame pro Rechenschritt
 % 2 - Frame pro Zeitintervall
     next_frame = 0; % First Frame
-    frame_int = 0.05;
+    frame_int = 0.01;
 
 
-videoart = 0;
+videoart = 1;
 % 0 - kein Video
 % 1 - Video (wie geplottet)
 
@@ -105,7 +109,7 @@ videoart = 0;
     
 %Start und Ende (Zeit)
 s=0;
-e=10;
+e=0.15;
 
 
 %linker und rechter Rand (Ort) fuer x oberer und unterer fuer y

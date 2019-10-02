@@ -85,7 +85,9 @@ HV((r_Ind8_r)) = -(dy .* HV((r_Ind8x)) + dx .* HV((r_Ind8y)))./(dx + dy);
 % dirichlet Randbedingung (3)
 
 if  dirit ~= 0
-    if hei == 1
+    if hei == 0
+        diri = 50;
+    elseif hei == 1
         diri = 0.5.*sin(100.*t)+5;
     end
     
