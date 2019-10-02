@@ -5,8 +5,8 @@ CFL=(1./sqrt(2))-0.05;
 
 
 %aufloesung
-n=100;
-m=100;
+n=150;
+m=300;
 
 verfahren = 1;
 % 0 - Lax-Friedrich
@@ -24,6 +24,7 @@ kartenart = 9;
 % 7 - Wellenbecken
 % 8 - Fluss
 % 9 - Boot auf Meer (0,10,0,20,relativ)
+% 10 - Haeuser in Tsunami
 
     kartenrand = 1;
     % 0 - absorbierend
@@ -43,6 +44,7 @@ kartenart = 9;
         hei = 1;
             % 1 - Welle
         imp = 1;
+            % 0 - stetig (10)
             % 1 - Welle
 
 anfangsbedingung = 4;
@@ -72,6 +74,7 @@ schadstoffart = 5;
 % 3 - Diffusionstest
 % 4 - Schadstoff Becken (zu Flussdammbruch)
 % 5 - Leck am Boot (unendliche Quelle)
+% 6 - Haus im Tsunami
 
 viewart = 1;
 % 0 - top-down
@@ -91,7 +94,7 @@ plotart = 2;
 % 1 - Frame pro Rechenschritt
 % 2 - Frame pro Zeitintervall
     next_frame = 0; % First Frame
-    frame_int = 0.01;
+    frame_int = 0.05;
 
 
 videoart = 0;
@@ -102,11 +105,11 @@ videoart = 0;
     
 %Start und Ende (Zeit)
 s=0;
-e=1;
+e=10;
 
 
 %linker und rechter Rand (Ort) fuer x oberer und unterer fuer y
-l=0;
-r=2;
-u=0;
-o=1;
+xmin=0;
+xmax=1;
+ymin=0;
+ymax=2;

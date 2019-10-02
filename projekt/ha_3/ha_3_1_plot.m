@@ -12,49 +12,64 @@ end
 
 if schadstoffart~=0
     
-    subplot(2,2,1)
-    surf(x,y,Hplot)
-    caxis(caxis_set_H)
-    shading interp
-    axis(axis_set_H)
-    axis equal
-    view(0,90)
+%     subplot(2,2,1)
+%     surf(y,x,Hplot)
+%     caxis(caxis_set_H)
+%     shading interp
+%     axis(axis_set_H)
+%     axis equal
+%     view(0,90)
+% %     xlabel('Y')
+% %     ylabel('X')
+%     grid off
+% %     set(gca,'visible','off')
     
-    subplot(2,2,2)
-    surf(x,y,Splot)
+%     subplot(2,2,2)
+    surf(y,x,Splot)
     caxis(caxis_set_S)
     shading interp
     axis(axis_set_S)
     axis equal
     view(0,90)
-    
-    subplot(2,2,3)
-    surf(x,y,Hplot)
-    if bodenart ~= 0
-        hold on
-        mesh(x(1:griddiv:end),y(1:griddiv:end),Bplot(1:griddiv:end,1:griddiv:end))
-        hold off
-    end
-    caxis(caxis_set_H)
-    shading interp
-    axis equal
-    axis(axis_set_H)
-    view(45,45)
+%     xlabel('Y')
+%     ylabel('X')
+    grid off
+%     set(gca,'visible','off')
 
-    subplot(2,2,4)
-    surf(x,y,Splot)
-    caxis(caxis_set_S)
-    colormap cool
-    shading interp
-    axis equal
-    axis(axis_set_S)
-    view(45,45)
+%     
+%     subplot(2,2,3)
+%     surf(y,x,Hplot)
+%     if bodenart ~= 0
+%         hold on
+%         mesh(y(1:griddiv:end),x(1:griddiv:end),Bplot(1:griddiv:end,1:griddiv:end))
+%         hold off
+%     end
+%     caxis(caxis_set_H)
+%     shading interp
+% %     axis equal
+%     axis(axis_set_H)
+%     view(45,45)
+%     grid off
+% %     set(gca,'visible','off')
+% 
+% 
+%     subplot(2,2,4)
+%     surf(y,x,Splot)
+%     caxis(caxis_set_S)
+%     colormap jet
+%     shading interp
+% %     axis equal
+%     axis(axis_set_S)
+%     view(45,45)
+%     grid off
+% %     set(gca,'visible','off')
+
     
 else
-    surf(x,y,Hplot)
+    surf(y,x,Hplot)
     if bodenart ~= 0
         hold on
-        surf(x,y,Bplot)
+        surf(y,x,Bplot)
         hold off
     end
 

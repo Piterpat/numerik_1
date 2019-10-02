@@ -2,13 +2,17 @@ if schadstoffart ~= 0
     % 0 - kein Schadstoff
     % 1 - Zentrierter Euler
     % 2 - Flussanfang
+    % 3 - Diffusionstest
+    % 4 - Schadstoff Becken (zu Flussdammbruch)
+    % 5 - Leck am Boot (unendliche Quelle)
+    % 6 - Haus im Tsunami
     
-    S=zeros(N,M);
-    Sx=zeros(N,M);
-    Sy=zeros(N,M);
+    S=zeros(n,m);
+    Sx=zeros(n,m);
+    Sy=zeros(n,m);
     
-    for i=1:M
-        for ii=1:N
+    for i=1:n
+        for ii=1:m
 
             if schadstoffart == 1
                 S(i,ii)=1.*exp(-10.*((sqrt(x(i).^2+y(ii).^2)).^2))+0.6;
@@ -35,7 +39,13 @@ if schadstoffart ~= 0
             if schadstoffart == 5
                 S(i,ii)=0;
             end
-        
+            
+            if schadstoffart == 6
+                if (y(ii)>0.25 && y(ii)<0.45) && (x(i)>0.4 && x(i)<0.6)
+                    S(i,ii)=2;
+                end
+            end
+            
         end
     end
 end

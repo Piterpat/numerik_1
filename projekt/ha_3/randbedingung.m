@@ -89,7 +89,9 @@ if  dirit ~= 0
         diri = 0.5.*sin(100.*t)+5;
     end
     
-    if imp == 1
+    if imp == 0
+        dirimp = 6;
+    elseif imp == 1
         dirimp = 0.5.*sin(100.*t)+5;
     end
     

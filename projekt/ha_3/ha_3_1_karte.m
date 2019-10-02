@@ -1,8 +1,8 @@
 %karten erstellen
 randkarte = zeros(n,m);
 
-x=linspace(l,r,n)';
-y=linspace(u,o,m)';
+x=linspace(xmin,xmax,n)';
+y=linspace(ymin,ymax,m)';
 
 % 0 - nur Rand
 % 1 - Dammbruch Spalt
@@ -14,6 +14,7 @@ y=linspace(u,o,m)';
 % 7 - Wellenbecken
 % 8 - Fluss
 % 9 - Boot auf Meer (0,10,0,20,relativ)
+% 10 - Haeuser bei Tsunami
 
 for i=1:n
     for ii=1:m
@@ -117,9 +118,12 @@ for i=1:n
         if kartenart == 9
             
             %Bootskasten
-            if (x(ii)>=0.5 && x(ii)<=1)...
-                    && (y(i)>=0.4 && y(i)<=0.6)
-                randkarte(i,ii) = 2;
+            if (y(ii)>0.5 && y(ii)<0.8) && (x(i)>0.35 && x(i)<0.75)
+                randkarte(i,ii)=2;
+            elseif (y(ii)>0.5 && y(ii)<0.65) && (x(i)>0.2 && x(i)<0.35) && (y(ii) + x(i) >  0.85)
+                randkarte(i,ii)=2;
+            elseif (y(ii)>0.65 && y(ii)<0.8) && (x(i)>0.2 && x(i)<0.35) && (y(ii) - x(i) <  0.45)
+                randkarte(i,ii)=2;
             end
             
             if i==1 || i==n || ii==m
@@ -130,10 +134,38 @@ for i=1:n
                 randkarte(i,ii) = 3;
             end
         end
-       
+        
+        if kartenart == 10
+            if (y(ii)>0.7 && y(ii)<1.05) && (x(i)>0.2 && x(i)<0.35)
+                randkarte(i,ii)=2;
+            elseif (y(ii)>0.85 && y(ii)<1.1) && (x(i)>0.5 && x(i)<0.8)
+                randkarte(i,ii)=2;
+            elseif (y(ii)>1.3 && y(ii)<1.4) && (x(i)>0.6 && x(i)<0.7)
+                randkarte(i,ii)=2;
+            elseif (y(ii)>1.4 && y(ii)<1.65) && (x(i)>0.8 && x(i)<0.95)
+                randkarte(i,ii)=2;
+            elseif (y(ii)>1.35 && y(ii)<1.5) && (x(i)>0.1 && x(i)<0.35)
+                randkarte(i,ii)=2;        
+            elseif (y(ii)>1.5 && y(ii)<1.6) && (x(i)>0.1 && x(i)<0.25)
+                randkarte(i,ii)=2;
+            elseif (y(ii)>1.6 && y(ii)<1.75) && (x(i)>0.1 && x(i)<0.35)
+                randkarte(i,ii)=2;
+            elseif (y(ii)>1.65 && y(ii)<1.85) && (x(i)>0.45 && x(i)<0.65) && (y(ii) > x(i) + 1.2)
+                randkarte(i,ii)=2;
+            end
+
+            if i==1 || i==n || ii==m
+                randkarte(i,ii) = 1;
+            end
+            
+            if ii == 1
+                randkarte(i,ii) = 3;
+            end
+        end
+
     end
 end
-
+       
 
 karteu=ones(n,m);
 karteu(:,1:end-1)=randkarte(:,2:end);
@@ -165,31 +197,26 @@ BERr=find(~karter);
 
 
 %Anzahl der Schritte N fuer x M fuer y
-[N,M]=size(randkarte);
-dx=(r-l)./N;
-dy=(o-u)./M;
-
-
-x=linspace(l,r,N)';
-y=linspace(u,o,M)';
+dx=(xmax-xmin)./n;
+dy=(ymax-ymin)./m;
 
 %U fuer 3D (mit gegebenen Anfangsvektor fuer H)
 H=ha_3_1_g(x,y,anfangsbedingung);
-HU=zeros(N,M);
-HV=zeros(N,M);
+HU=zeros(n,m);
+HV=zeros(n,m);
 
 
 %F halbe 
-F1h=zeros(N,M);
-F2h=zeros(N,M);
-F3h=zeros(N,M);
+F1h=zeros(n,m);
+F2h=zeros(n,m);
+F3h=zeros(n,m);
 
 %G halbe 
-G1h=zeros(N,M);
-G2h=zeros(N,M);
-G3h=zeros(N,M);
+G1h=zeros(n,m);
+G2h=zeros(n,m);
+G3h=zeros(n,m);
 
 %Laufvariable der while schleife (fuer Indizes der Vektoren)
-n=1;
+counter=1;
 %Endbedingung der while schleife
 t=s;

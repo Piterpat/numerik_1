@@ -6,10 +6,10 @@ if bodenart ~= 0
     % 3 - Stufe
     % 4 - Flach
     % 5 - Kuppel
-    B=zeros(N,M);
+    B=zeros(n,m);
 
-    for i=1:M
-        for ii=1:N
+    for i=1:n
+        for ii=1:m
 
             if bodenart == 1
                 B(i,ii)=sin(x(i).*pi)-2;
@@ -41,8 +41,8 @@ if bodenart ~= 0
 
     H=H-B;
 
-    dBy=zeros(N,M);
-    dBx=zeros(N,M);
+    dBy=zeros(n,m);
+    dBx=zeros(n,m);
 
     dBx(2:end-1,2:end-1)=(B(3:end,2:end-1)-B(1:end-2,2:end-1))./(2.*dx);
     dBy(2:end-1,2:end-1)=(B(2:end-1,3:end)-B(2:end-1,1:end-2))./(2.*dy);
