@@ -116,19 +116,11 @@ for i=1:n
         
         if kartenart == 9
             
-            randkarte(i,ii)=0;
-
-%             if (y(ii)>-0.9 && y(ii)<-0.5) && x(i)>-0.9
-%                 randkarte(i,ii)=0;
-%             elseif (x(i)>-0.9 && x(i)<-0.5) && y(ii)>-0.9 && y(ii)<0.4
-%                 randkarte(i,ii)=0;
-%             elseif (y(ii)>0 && y(ii)<0.4) && x(i)>-0.9 && x(i)<0.4
-%                 randkarte(i,ii)=0;
-%             elseif (x(i)>0 && x(i)<0.4) && y(ii)>0
-%                 randkarte(i,ii)=0;
-%             elseif (y(ii)>-0.9 && y(ii)<0.9) && x(i)>0.6
-%                 randkarte(i,ii)=0;
-%             end
+            %Bootskasten
+            if (x(ii)>=0.5 && x(ii)<=1)...
+                    && (y(i)>=0.4 && y(i)<=0.6)
+                randkarte(i,ii) = 2;
+            end
             
             if i==1 || i==n || ii==m
                 randkarte(i,ii) = 1;

@@ -130,6 +130,18 @@ while t<e
         S=(Sx-S)+(Sy-S)+S;
     end
 
+        if schadstoffart == 5
+            t
+            if t > 0.5
+                for i = 1:N
+                    for ii= 1:M
+                        if x(i) >= 0.45 && x(i) <= 0.50 && y(ii) >= 0.2 && y(ii) <= 0.25
+                            S(i,ii)=1;
+                        end
+                    end
+                end
+            end
+        end
 
       %6) Randbedingung
       randbedingung

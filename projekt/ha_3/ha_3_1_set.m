@@ -34,12 +34,12 @@ kartenart = 9;
     % 2 - Innere Zellen der Karte reflektierend
     % 3 - dirilet Randbedingung Anregung
 
-    dirit = 1;
+    dirit = 2;
     % 0 - kein dirit
-    % 1 - x Seitig Höhe
-    % 2 - x Seitig Impuls
-    % 3 - y Seitig Höhe
-    % 4 - y Seitig Impuls
+    % 1 - y Seitig Höhe
+    % 2 - y Seitig Impuls
+    % 3 - x Seitig Höhe
+    % 4 - x Seitig Impuls
         hei = 1;
             % 1 - Welle
         imp = 1;
@@ -65,12 +65,13 @@ bodenart = 0;
 % 5 - Kuppel
     griddiv = 5;
 
-schadstoffart = 2;
+schadstoffart = 5;
 % 0 - kein Schadstoff
 % 1 - Zentrierter euler
 % 2 - Flussanfang euler
 % 3 - Diffusionstest
 % 4 - Schadstoff Becken (zu Flussdammbruch)
+% 5 - Leck am Boot (unendliche Quelle)
 
 viewart = 1;
 % 0 - top-down
@@ -85,12 +86,12 @@ viewart = 1;
 % 7 - 45 grad y
 
 
-plotart = 1;
+plotart = 2;
 % 0 - nicht plotten
 % 1 - Frame pro Rechenschritt
 % 2 - Frame pro Zeitintervall
     next_frame = 0; % First Frame
-    frame_int = 0.1;
+    frame_int = 0.01;
 
 
 videoart = 0;
@@ -101,7 +102,7 @@ videoart = 0;
     
 %Start und Ende (Zeit)
 s=0;
-e=10;
+e=1;
 
 
 %linker und rechter Rand (Ort) fuer x oberer und unterer fuer y

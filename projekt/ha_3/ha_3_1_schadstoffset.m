@@ -31,6 +31,10 @@ if schadstoffart ~= 0
                      S(i,ii)=1;
                 end
             end
+            
+            if schadstoffart == 5
+                S(i,ii)=0;
+            end
         
         end
     end

@@ -90,7 +90,7 @@ if  dirit ~= 0
     end
     
     if imp == 1
-        dirimp = 5;
+        dirimp = 0.5.*sin(100.*t)+5;
     end
     
     if dirit == 1
@@ -137,14 +137,14 @@ if  dirit ~= 0
         HU((diri_Ind3_r)) = HU((diri_Ind3));
         HU((diri_Ind5_r)) = HU((diri_Ind5));
         HU((diri_Ind7_r)) = HU((diri_Ind7));
-        HU((diri_Ind2_r)) = dirimp;
+        HU((diri_Ind2_r)) = (dy .* HU((diri_Ind2x)) + dx .* HU((diri_Ind2y)))./(dx + dy);
         HU((diri_Ind4_r)) = (dy .* HU((diri_Ind4x)) + dx .* HU((diri_Ind4y)))./(dx + dy);
-        HU((diri_Ind6_r)) = dirimp;
+        HU((diri_Ind6_r)) = (dy .* HU((diri_Ind6x)) + dx .* HU((diri_Ind6y)))./(dx + dy);
         HU((diri_Ind8_r)) = (dy .* HU((diri_Ind8x)) + dx .* HU((diri_Ind8y)))./(dx + dy);
 
-        HV((diri_Ind1_r)) = HV((diri_Ind1));
+        HV((diri_Ind1_r)) = dirimp;
         HV((diri_Ind3_r)) = HV((diri_Ind3));
-        HV((diri_Ind5_r)) = HV((diri_Ind5));
+        HV((diri_Ind5_r)) = dirimp;
         HV((diri_Ind7_r)) = HV((diri_Ind7));
         HV((diri_Ind2_r)) = (dy .* HV((diri_Ind2x)) + dx .* HV((diri_Ind2y)))./(dx + dy);
         HV((diri_Ind4_r)) = (dy .* HV((diri_Ind4x)) + dx .* HV((diri_Ind4y)))./(dx + dy);
@@ -192,9 +192,9 @@ if  dirit ~= 0
 
 
         HU((diri_Ind1_r)) = HU((diri_Ind1));
-        HU((diri_Ind3_r)) = HU((diri_Ind3));
+        HU((diri_Ind3_r)) = dirimp;
         HU((diri_Ind5_r)) = HU((diri_Ind5));
-        HU((diri_Ind7_r)) = HU((diri_Ind7));
+        HU((diri_Ind7_r)) = dirimp;
         HU((diri_Ind2_r)) = (dy .* HU((diri_Ind2x)) + dx .* HU((diri_Ind2y)))./(dx + dy);
         HU((diri_Ind4_r)) = (dy .* HU((diri_Ind4x)) + dx .* HU((diri_Ind4y)))./(dx + dy);
         HU((diri_Ind6_r)) = (dy .* HU((diri_Ind6x)) + dx .* HU((diri_Ind6y)))./(dx + dy);
