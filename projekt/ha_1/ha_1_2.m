@@ -1,16 +1,16 @@
 %Hausaufgabe 1.2 implemtieren des Upwind-Verfahrens
 %LÃ¶sen der linearen Transportgleichung auf gegebenen Gebiet
-clear
+function [L,U,W,deltax] = ha_1_2 (N)
 
 a=1;
 CFL=0.9;
-f=@(x) exp(-(5./2).*(x-2).^2);
-%f=@(x) ha_1_2_g(x);
+ f=@(x) exp(-(5./2).*(x-2).^2);
+% f=@(x) ha_1_2_g(x);
 
 %Intervall Grenzen
 l=0;
 r=10;
-N=100;
+% N=50;
 deltax=(r-l)./N;
 
 s=0;
@@ -36,7 +36,6 @@ U(2:end-1,1)=f(x(2:end-1,1));
 i=1;
 tic;
 while i<=M-1
-    tic;
     U(2:end-1,i+1)=U(2:end-1,i)-CFL.*(U(2:end-1,i)-U(1:end-2,i));
     i=i+1;
 end
@@ -62,7 +61,10 @@ while i<=M-1
 end
 tw = toc;
 
-ha_1_5
+
+
+
+% ha_1_5
 
 %     plot(x,L(:,27),'k')
 %     hold on
@@ -74,31 +76,32 @@ ha_1_5
 %     legend('analyitsche','Upwind','Lax-Friedrich','Lax-Wendroff','FTCS')
 %     axis([l,r,min(U(:,1)),max(U(:,1))])
     
-    tu
-    tf
-    tw
+% Zeiten für Erstellung
+%     tu
+%     tf
+%     tw
 %     timp
     
 
-%plotting
-Frames=struct('cdata', cell(1, M), 'colormap', cell(1, M));
-fig=figure(1);
-for i=1:M
-    if ~ishandle(fig)
-        break
-    end
-    plot(x,L(:,i),'k')
-    hold on
-    plot(x,U(:,i),'b')
-    plot(x,F(:,i),'g')
-    plot(x,W(:,i),'r')
-    plot(x,FTCS(1:end,i),'m');
-    hold off
-    legend('analyitsche','Upwind','Lax-Friedrich','Lax-Wendroff')
-    axis([l,r,min(U(:,1)),max(U(:,1))])
-    Frames(i) = getframe(gcf);
-    drawnow
-end
+% plotting
+% Frames=struct('cdata', cell(1, M), 'colormap', cell(1, M));
+% fig=figure(1);
+% for i=1:M
+%     if ~ishandle(fig)
+%         break
+%     end
+%     plot(x,L(:,i),'k')
+%     hold on
+%     plot(x,U(:,i),'b')
+%     plot(x,F(:,i),'g')
+%     plot(x,W(:,i),'r')
+% %     plot(x,FTCS(1:end,i),'m');
+%     hold off
+%     legend('analyitsche','Upwind','Lax-Friedrich','Lax-Wendroff')
+%     axis([l,r,min(U(:,1)),max(U(:,1))])
+%     Frames(i) = getframe(gcf);
+%     drawnow
+% end
 % 
 % % create the video writer with 1 fps
 %   writerObj = VideoWriter('ha_1_2_projekt.avi');

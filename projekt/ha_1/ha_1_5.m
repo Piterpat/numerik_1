@@ -17,7 +17,7 @@ x=linspace(l,r,N)';
 s=0;
 e=5;
 
-deltat=0.45;
+deltat=0.1;
 M = floor((e-s)./deltat);
 
 c=(a .* deltat) ./ deltax;
@@ -43,18 +43,18 @@ timp = toc;
 
 
 
-% %analytische Loesung
-% for i=1:M
-%     L(2:end-1,i)=f(x(2:end-1,1)-((i-1)*deltat));
-% end
-% 
-% 
-%     plot(x,L(1:end,10),'k');
-%     hold on
-%     plot(x,FTCS(1:end,10),'g');
-%     legend('analyitsche','FTCS')
-%     axis([l,r,min(FTCS(:,1)),max(FTCS(:,1))])
-% hold off
+%analytische Loesung
+for i=1:M
+    L(2:end-1,i)=f(x(2:end-1,1)-((i-1)*deltat));
+end
+
+
+    plot(x,L(1:end,10),'k');
+    hold on
+    plot(x,FTCS(1:end,10),'g');
+    legend('analyitsche','FTCS')
+    axis([l,r,min(FTCS(:,1)),max(FTCS(:,1))])
+hold off
     
 
 %     Frames=struct('cdata', cell(1, M), 'colormap', cell(1, M));
