@@ -1,0 +1,7 @@
+X=0:0.1:0.9;
+plot(X,H,'b')
+hold on
+plot(X,h,'k')
+plot(X,h-H,'r')
+hold off
+axes([0,1,-0.2,1.2])

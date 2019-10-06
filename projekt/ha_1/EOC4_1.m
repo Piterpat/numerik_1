@@ -6,7 +6,9 @@ N1 = 8;
 N2 = 16;
 i = 1;
 
-while i<=12
+
+while i<=8
+
     
 [L1,U1,W1,deltax1] = ha_1_2(N1);
 [L2,U2,W2,deltax2] = ha_1_2(N2);
@@ -15,8 +17,10 @@ LU1 = L1 - U1;
 LW1 = L2 - W2;
 LW2 = L1 - W1;
 
-pUp(i) = (log(norm((abs(LU2)),inf)) - (log(norm(abs(LU1),inf))))./ (log(deltax2) - log(deltax1));
-pWend(i) = (log(norm(abs(LW2),inf)) - (log(norm(abs(LW1),inf))))./ (log(deltax2) - log(deltax1));
+
+pUp(i) = (log(norm((abs(LU2)),2)) - (log(norm(abs(LU1),2))))./ (log(deltax2) - log(deltax1));
+pWend(i) = (log(norm(abs(LW2),2)) - (log(norm(abs(LW1),2))))./ (log(deltax2) - log(deltax1));
+
 
 N1 = N1.*2;
 N2 = N2 .*2;
@@ -30,6 +34,6 @@ hold on
 plot (pUp,'g')
 hold off
 legend('Lax-Wendroff','Upwind')
-axis([1 10 -0.5 0.5])
+axis([1 8 -1 1])
 xlabel('Auflösungsnummer')
 ylabel('EOC')

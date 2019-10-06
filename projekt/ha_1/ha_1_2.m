@@ -4,6 +4,7 @@ function [L,U,W,deltax] = ha_1_2 (N)
 
 a=1;
 CFL=0.9;
+
  f=@(x) exp(-(5./2).*(x-2).^2);
 % f=@(x) ha_1_2_g(x);
 

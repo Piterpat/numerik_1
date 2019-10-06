@@ -28,7 +28,7 @@ while t<e
                 end
                 ha_3_1_plot
                 next_frame = next_frame + frame_int;
-    %             t
+                t
 
             end
         end
@@ -101,7 +101,7 @@ while t<e
         -((dt./dx).*(F1h(BER)-F1h(BERr)))...
         -((dt./dy).*(G1h(BER)-G1h(BERu)));
     
-      %5) Schadstoff
+    %5) Schadstoff
     if schadstoffart ~= 0
         U=HU./H;
         
@@ -129,13 +129,14 @@ while t<e
 %             S=(Sx+Sy)./2;
         S=(Sx-S)+(Sy-S)+S;
     end
+    %*) Timing-based-szenario-actions
+    ha_3_1_timing
 
-
-      %6) Randbedingung
-      randbedingung
+    %6) Randbedingung
+    randbedingung
 
     t=t+dt;
-    n=n+1;
+    counter=counter+1;
 end
 
 toc
