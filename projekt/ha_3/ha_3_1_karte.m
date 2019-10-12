@@ -155,7 +155,7 @@ for i=1:n
                 randkarte(i,ii)=2;
             end
 
-            if i==1 || i==n || ii==m
+            if i==1 || i==n  || ii==m
                 randkarte(i,ii) = 1;
             end
             

@@ -42,9 +42,7 @@ if schadstoffart ~= 0
             end
             
             if schadstoffart == 6
-                if (y(ii)>0.25 && y(ii)<0.45) && (x(i)>0.4 && x(i)<0.6)
-                    S(i,ii)=2;
-                end
+                S(i,ii)=0;
             end
             
             if schadstoffart == 7

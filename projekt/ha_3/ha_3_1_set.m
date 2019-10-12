@@ -5,15 +5,15 @@ CFL=(1./sqrt(2))-0.05;
 
 
 %aufloesung
-n=200;
-m=400;
+n=100;
+m=200;
 
 verfahren = 1;
 % 0 - Lax-Friedrich
 % 1 - Rusanov
 
 
-kartenart = 11;
+kartenart = 10;
 % 0 - nur Rand
 % 1 - Dammbruch Spalt
 % 2 - Pylon
@@ -36,7 +36,7 @@ kartenart = 11;
     % 2 - Innere Zellen der Karte reflektierend
     % 3 - dirilet Randbedingung Anregung
 
-    dirit = 1;
+    dirit = 2;
     % 0 - kein dirit
     % 1 - y Seitig Höhe
     % 2 - y Seitig Impuls
@@ -49,7 +49,7 @@ kartenart = 11;
             % 0 - stetig (6)
             % 1 - Welle
 
-anfangsbedingung = 9;
+anfangsbedingung = 4;
 % 0 - Wassertropfen
 % 1 - Welle nach innen
 % 2 - Sinusbecken
@@ -61,7 +61,7 @@ anfangsbedingung = 9;
 % 8 - projektaufgabe kasten
 % 9 - Dammbruch der 3.
 
-bodenart = 0;
+bodenart = 1;
 % 0 - kein Boden
 % 1 - Wellenboden
 % 2 - Schraege
@@ -70,7 +70,7 @@ bodenart = 0;
 % 5 - Kuppel
     griddiv = 5;
 
-schadstoffart = 7;
+schadstoffart = 6;
 % 0 - kein Schadstoff
 % 1 - Zentrierter euler
 % 2 - Flussanfang euler
@@ -101,7 +101,7 @@ plotart = 2;
     frame_int = 0.01;
 
 
-videoart = 1;
+videoart = 0;
 % 0 - kein Video
 % 1 - Video (wie geplottet)
 
@@ -109,7 +109,7 @@ videoart = 1;
     
 %Start und Ende (Zeit)
 s=0;
-e=0.15;
+e=10;
 
 
 %linker und rechter Rand (Ort) fuer x oberer und unterer fuer y
