@@ -16,6 +16,7 @@ y=linspace(ymin,ymax,m)';
 % 9 - Boot auf Meer (0,10,0,20,relativ)
 % 10 - Haeuser bei Tsunami
 % 11 - Dammbruch der 3.
+% 12 - Dammbruch der 3. (reflektierendes Ende)
 
 for i=1:n
     for ii=1:m
@@ -194,6 +195,41 @@ for i=1:n
             %Raender
             if i==1 || i==n || ii==1 || ii==m
                 randkarte(i,ii)=1;
+            end
+            
+
+        end
+        
+        if kartenart == 12
+            randkarte(i,ii)=2;
+            
+            %Rechtecke
+            if x(i)>=0.5 && x(i)<=0.95 && y(ii)>=0.05 && y(ii)<=0.55
+                randkarte(i,ii)=0;
+            elseif x(i)>=0.35 && x(i)<=0.5 && y(ii)>=0.15 && y(ii)<=0.45
+                randkarte(i,ii)=0;
+            elseif x(i)>=0.05 && x(i)<=0.35 && y(ii)>=0.45 && y(ii)<=1
+                randkarte(i,ii)=0;
+            elseif x(i)>=0.35 && x(i)<=0.55 && y(ii)>=1 && y(ii)<=1.3
+                randkarte(i,ii)=0;
+            elseif x(i)>=0.55 && x(i)<=0.85 && y(ii)>=1.3
+                randkarte(i,ii)=0;
+            end
+            
+            %Rundungen
+            if (x(i)-0.35)^2 + (y(ii)-0.45)^2 <= 0.09 && x(i)<=0.35 && y(ii)<=0.45
+                randkarte(i,ii)=0;
+            end
+            if (x(i)-0.35)^2 + (y(ii)-1)^2 <= 0.09 && x(i)<=0.35 && y(ii)>=1
+                randkarte(i,ii)=0;
+            end
+            if (x(i)-0.55)^2 + (y(ii)-1.3)^2 <= 0.09 && x(i)>=0.55 && y(ii)<=1.3
+                randkarte(i,ii)=0;
+            end
+            
+            %Raender
+            if i==1 || i==n || ii==1 || ii==m
+                randkarte(i,ii)=2;
             end
             
 

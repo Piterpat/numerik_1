@@ -5,19 +5,21 @@ Splot=NaN(n,m);
 fig=figure(1);
 
 if bodenart~=0
+    Hplot(BER)=H(BER)+B(BER);
     Bplot(BER)=B(BER);
 
     axis_set_H=[ymin ymax...
     xmin xmax...
     min(min(B)) max(max(H+B))+2];
 else
+    Hplot(BER)=H(BER);
     axis_set_H=[ymin ymax...
     xmin xmax...
     min(min(H)-1) max(max(H))+1];
 
 end
 
-caxis_set_H=[min(min(H)-0.01) max(max(H))+0.01];
+caxis_set_H=[min(min(Hplot)-0.01) max(max(Hplot))+0.01];
 
 
 if schadstoffart~=0

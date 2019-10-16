@@ -12,12 +12,11 @@ if bodenart ~= 0
         for ii=1:m
 
             if bodenart == 1
-                B(i,ii)=sin(x(i).*pi)-2;
+                B(i,ii)=sin(x(i).*pi)*100-100;
             end
 
             if bodenart == 2
-                B(i,ii)=(-1.5.*i/N)+3.5;
-%                 B(i,ii)=(-5.*i/N)+3.5;
+                B(i,ii)=(50.*ii/n)-100;
             end
 
             if bodenart == 3
@@ -29,7 +28,7 @@ if bodenart ~= 0
             end
 
             if bodenart == 4
-                B(i,ii)= 1;
+                B(i,ii)= 0;
             end
 
             if bodenart == 5

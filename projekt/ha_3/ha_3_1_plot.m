@@ -11,33 +11,33 @@ end
 
 
 if schadstoffart~=0
-    
-    subplot(1,2,1)
-    surf(y,x,Hplot)
-    caxis(caxis_set_H)
-    shading interp
-    axis(axis_set_H)
-    axis equal
-    view(0,90)
-%     xlabel('Y')
-%     ylabel('X')
-    grid off
-%     set(gca,'visible','off')
-    
-    subplot(1,2,2)
-    surf(y,x,Splot)
-    caxis(caxis_set_S)
-    shading interp
-    axis(axis_set_S)
-    axis equal
-    view(0,90)
-%     xlabel('Y')
-%     ylabel('X')
-    grid off
-%     set(gca,'visible','off')
-
-% %     
-%     subplot(1,2,1)
+%     
+%     subplot(2,2,1)
+%     surf(y,x,Hplot)
+%     caxis(caxis_set_H)
+%     shading interp
+%     axis(axis_set_H)
+%     axis equal
+%     view(0,90)
+% %     xlabel('Y')
+% %     ylabel('X')
+%     grid off
+% %     set(gca,'visible','off')
+%     
+%     subplot(2,2,2)
+%     surf(y,x,Splot)
+%     caxis(caxis_set_S)
+%     shading interp
+%     axis(axis_set_S)
+%     axis equal
+%     view(0,90)
+% %     xlabel('Y')
+% %     ylabel('X')
+%     grid off
+% %     set(gca,'visible','off')
+% 
+% % %     
+%     subplot(2,2,3)
 %     surf(y,x,Hplot)
 %     if bodenart ~= 0
 %         hold on
@@ -46,11 +46,11 @@ if schadstoffart~=0
 %     end
 %     caxis(caxis_set_H)
 %     shading interp
-%     axis equal
+% %     axis square
 %     axis(axis_set_H)
 %     view(45,45)
 %     grid off
-%     set(gca,'visible','off')
+% %     set(gca,'visible','off')
 % 
 % 
 %     subplot(2,2,4)
@@ -64,6 +64,54 @@ if schadstoffart~=0
 %     grid off
 % %     set(gca,'visible','off')
 
+%---------------------- Bodenterm Beispiel
+
+    subplot(1,3,2)
+    surf(y,x,Hplot)
+    caxis(caxis_set_H)
+    shading interp
+    axis(axis_set_H)
+    axis equal
+    view(0,90)
+%     xlabel('Y')
+%     ylabel('X')
+    grid off
+%     set(gca,'visible','off')
+    
+    subplot(1,3,3)
+    surf(y,x,Splot)
+    caxis(caxis_set_S)
+    shading interp
+    axis(axis_set_S)
+    axis equal
+    view(0,90)
+%     xlabel('Y')
+%     ylabel('X')
+    grid off
+%     set(gca,'visible','off')
+
+% %     
+%     subplot(1,3,1)
+%     surf(y,x,Bplot)
+% %     if bodenart ~= 0
+% %         hold on
+% %         mesh(y(1:griddiv:end),x(1:griddiv:end),Bplot(1:griddiv:end,1:griddiv:end))
+% %         hold off
+% %     end
+% %     caxis(caxis_set_H)
+%     shading interp
+%     axis equal
+% %     axis(axis_set_H)
+%     view(0,90)
+%     grid off
+% %     set(gca,'visible','off')
+%     caxis([-100 0]);
+
+
+    
+
+
+%----------------------
     
 else
     surf(y,x,Hplot)

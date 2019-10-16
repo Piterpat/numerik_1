@@ -13,7 +13,7 @@ verfahren = 1;
 % 1 - Rusanov
 
 
-kartenart = 10;
+kartenart = 12;
 % 0 - nur Rand
 % 1 - Dammbruch Spalt
 % 2 - Pylon
@@ -26,6 +26,7 @@ kartenart = 10;
 % 9 - Boot auf Meer (0,10,0,20,relativ)
 % 10 - Haeuser in Tsunami
 % 11 - Dammbruch der 3.
+% 12 - Dammbruch der 3. (reflektierendes Ende)
 
     kartenrand = 1;
     % 0 - absorbierend
@@ -43,13 +44,13 @@ kartenart = 10;
     % 3 - x Seitig Höhe
     % 4 - x Seitig Impuls
         hei = 1;
-            % 0 - stetig (50)
-            % 1 - Welle
-        imp = 1;
             % 0 - stetig (6)
             % 1 - Welle
+        imp = 1;
+            % 0 - stetig (50)
+            % 1 - Welle
 
-anfangsbedingung = 4;
+anfangsbedingung = 9;
 % 0 - Wassertropfen
 % 1 - Welle nach innen
 % 2 - Sinusbecken
@@ -61,7 +62,7 @@ anfangsbedingung = 4;
 % 8 - projektaufgabe kasten
 % 9 - Dammbruch der 3.
 
-bodenart = 1;
+bodenart = 0;
 % 0 - kein Boden
 % 1 - Wellenboden
 % 2 - Schraege
@@ -70,7 +71,7 @@ bodenart = 1;
 % 5 - Kuppel
     griddiv = 5;
 
-schadstoffart = 6;
+schadstoffart = 7;
 % 0 - kein Schadstoff
 % 1 - Zentrierter euler
 % 2 - Flussanfang euler
@@ -98,7 +99,7 @@ plotart = 2;
 % 1 - Frame pro Rechenschritt
 % 2 - Frame pro Zeitintervall
     next_frame = 0; % First Frame
-    frame_int = 0.01;
+    frame_int = 0.001;
 
 
 videoart = 0;
@@ -109,7 +110,7 @@ videoart = 0;
     
 %Start und Ende (Zeit)
 s=0;
-e=10;
+e=0.08;
 
 
 %linker und rechter Rand (Ort) fuer x oberer und unterer fuer y
