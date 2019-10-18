@@ -19,7 +19,7 @@ e=5;
 deltat=(deltax./a).*CFL;
 M=floor((e-s)/deltat);
 
-x=linspace(l,10,N)';
+x=linspace(l,10-deltax,N)';
 
 L=zeros(N,M);
 U=zeros(N,M);
