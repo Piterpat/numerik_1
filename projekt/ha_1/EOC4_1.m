@@ -2,8 +2,8 @@
 % L = analytisch, U= Upwind, W= Lax Wendroff
 clear
 
-N1 = 8;
-N2 = 16;
+N1 = 16;
+N2 = 8;
 i = 1;
 
 
@@ -12,14 +12,14 @@ while i<=8
     
 [L1,U1,W1,deltax1] = ha_1_2(N1);
 [L2,U2,W2,deltax2] = ha_1_2(N2);
-LU2 = L2-U2;
+LU2 = L2 - U2;
 LU1 = L1 - U1;
-LW1 = L2 - W2;
-LW2 = L1 - W1;
+LW2 = L2 - W2;
+LW1 = L1 - W1;
 
 
-pUp(i) = (log(norm((abs(LU2)),2)) - (log(norm(abs(LU1),2))))./ (log(deltax2) - log(deltax1));
-pWend(i) = (log(norm(abs(LW2),2)) - (log(norm(abs(LW1),2))))./ (log(deltax2) - log(deltax1));
+pUp(i) = (log(norm((LU2),2)) - (log(norm(LU1,2))))./ (log(deltax2) - log(deltax1));
+pWend(i) = (log(norm(LW2,2)) - (log(norm(LW1,2))))./ (log(deltax2) - log(deltax1));
 
 
 N1 = N1.*2;

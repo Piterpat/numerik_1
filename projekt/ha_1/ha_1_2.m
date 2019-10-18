@@ -1,17 +1,17 @@
 %Hausaufgabe 1.2 implemtieren des Upwind-Verfahrens
 %Lösen der linearen Transportgleichung auf gegebenen Gebiet
-function [L,U,W,deltax] = ha_1_2 (N)
+ function [L,U,W,deltax] = ha_1_2 (N)
 
 a=1;
 CFL=0.9;
 
- f=@(x) exp(-(5./2).*(x-2).^2);
-% f=@(x) ha_1_2_g(x);
+  f=@(x) exp(-(5./2).*(x-2).^2);
+%  f=@(x) ha_1_2_g(x);
 
 %Intervall Grenzen
 l=0;
 r=10;
-% N=50;
+%  N=100;
 deltax=(r-l)./N;
 
 s=0;
@@ -19,7 +19,7 @@ e=5;
 deltat=(deltax./a).*CFL;
 M=floor((e-s)/deltat);
 
-x=linspace(l,r,N)';
+x=linspace(l,9.9,N)';
 
 L=zeros(N,M);
 U=zeros(N,M);
@@ -28,7 +28,7 @@ W=zeros(N,M);
 
 %analytische Loesung
 for i=1:M
-    L(2:end-1,i)=f(x(2:end-1,1)-((i-1)*deltat));
+    L(2:end-1,i)=f(x(2:end-1)-((i-1)*deltat));
 end
 
 %Upwind
@@ -88,9 +88,9 @@ tw = toc;
 % Frames=struct('cdata', cell(1, M), 'colormap', cell(1, M));
 % fig=figure(1);
 % for i=1:M
-%     if ~ishandle(fig)
-%         break
-%     end
+% %     if ~ishandle(fig)
+% %         break
+% %     end
 %     plot(x,L(:,i),'k')
 %     hold on
 %     plot(x,U(:,i),'b')
@@ -98,9 +98,9 @@ tw = toc;
 %     plot(x,W(:,i),'r')
 % %     plot(x,FTCS(1:end,i),'m');
 %     hold off
-%     legend('analyitsche','Upwind','Lax-Friedrich','Lax-Wendroff')
+%     legend('analytsche','Upwind','Lax-Friedrich','Lax-Wendroff')
 %     axis([l,r,min(U(:,1)),max(U(:,1))])
-%     Frames(i) = getframe(gcf);
+% %     Frames(i) = getframe(gcf);
 %     drawnow
 % end
 % 
