@@ -13,7 +13,7 @@ verfahren = 1;
 % 1 - Rusanov
 
 
-kartenart = 12;
+kartenart = 11;
 % 0 - nur Rand
 % 1 - Dammbruch Spalt
 % 2 - Pylon
@@ -110,7 +110,7 @@ videoart = 0;
     
 %Start und Ende (Zeit)
 s=0;
-e=0.08;
+e=0.5;
 
 
 %linker und rechter Rand (Ort) fuer x oberer und unterer fuer y

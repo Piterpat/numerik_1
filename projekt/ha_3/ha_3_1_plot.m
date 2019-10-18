@@ -66,7 +66,7 @@ if schadstoffart~=0
 
 %---------------------- Bodenterm Beispiel
 
-    subplot(1,3,2)
+    subplot(1,2,1)
     surf(y,x,Hplot)
     caxis(caxis_set_H)
     shading interp
@@ -78,7 +78,7 @@ if schadstoffart~=0
     grid off
 %     set(gca,'visible','off')
     
-    subplot(1,3,3)
+    subplot(1,2,2)
     surf(y,x,Splot)
     caxis(caxis_set_S)
     shading interp
