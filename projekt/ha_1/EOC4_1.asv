@@ -4,13 +4,13 @@ clear
 
 N1 = 16;
 N2 = 8;
-i = 1;
+i = 3;
 
 
 while i<=8
 
     
-[L1,U1,W1,deltax1] = ha_1_2(N1);
+[L1,U1,W1,deltax1] = ha_1_2(2^i);
 [L2,U2,W2,deltax2] = ha_1_2(N2);
 LU2 = L2 - U2;
 LU1 = L1 - U1;
@@ -18,8 +18,8 @@ LW2 = L2 - W2;
 LW1 = L1 - W1;
 
 
-pUp(i) = (log(norm((LU2(:,end)),inf)) - (log(norm(LU1(:,end),inf))))./ (log(deltax2) - log(deltax1));
-pWend(i) = (log(norm(LW2(:,end),inf)) - (log(norm(LW1(:,end),inf))))./ (log(deltax2) - log(deltax1));
+pUp(i) = (log(norm((LU2(:,end)),2)) - (log(norm(LU1(:,end),2))))./ (log(deltax2) - log(deltax1));
+pWend(i) = (log(norm(LW2(:,end),2)) - (log(norm(LW1(:,end),2))))./ (log(deltax2) - log(deltax1));
 
 
 N1 = N1.*2;

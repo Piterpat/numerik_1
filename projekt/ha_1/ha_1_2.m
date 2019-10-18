@@ -1,6 +1,6 @@
 %Hausaufgabe 1.2 implemtieren des Upwind-Verfahrens
 %Lösen der linearen Transportgleichung auf gegebenen Gebiet
- function [L,U,W,deltax] = ha_1_2 (N)
+function [L,U,W,deltax] = ha_1_2 (N)
 
 a=1;
 CFL=0.9;
@@ -11,7 +11,7 @@ CFL=0.9;
 %Intervall Grenzen
 l=0;
 r=10;
-%  N=100;
+% N=256;
 deltax=(r-l)./N;
 
 s=0;
@@ -19,7 +19,7 @@ e=5;
 deltat=(deltax./a).*CFL;
 M=floor((e-s)/deltat);
 
-x=linspace(l,9.9,N)';
+x=linspace(l,10,N)';
 
 L=zeros(N,M);
 U=zeros(N,M);
